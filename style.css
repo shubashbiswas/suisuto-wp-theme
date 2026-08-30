@@ -144,3 +144,45 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: #A87C6D;
 }
+
+/* Micro Dropdown Regional Switcher for Sui Suto Header */
+.grr-compact-switcher, .grr-frontend-switcher {
+    display: inline-flex;
+    align-items: center;
+}
+
+.grr-switcher-label {
+    display: none !important;
+}
+
+.grr-compact-select, .grr-switcher-select {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.25) !important;
+    border-radius: 0 !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    padding: 2px 14px 2px 2px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    appearance: auto !important;
+    max-width: 85px !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.grr-compact-select:hover, .grr-switcher-select:hover {
+    border-bottom-color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+.grr-compact-select option, .grr-switcher-select option {
+    background: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.12em !important;
+}
