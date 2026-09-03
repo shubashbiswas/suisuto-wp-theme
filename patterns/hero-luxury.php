@@ -32,10 +32,10 @@
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">
 				<!-- wp:button {"style":{"color":{"background":"var(--wp--preset--color--warm-ivory)","text":"var(--wp--preset--color--deep-ink)"},"border":{"radius":"0px"}}} -->
-				<div class="wp-block-button"><a class="wp-block-button__link has-deep-ink-color has-warm-ivory-background-color has-text-color has-background" href="/shop" style="border-radius:0px">DISCOVER COLLECTION</a></div>
+				<div class="wp-block-button"><a class="wp-block-button__link has-deep-ink-color has-warm-ivory-background-color has-text-color has-background" href="<?php echo esc_url( home_url( '/shop' ) ); ?>" style="border-radius:0px">DISCOVER COLLECTION</a></div>
 				<!-- /wp:button -->
 				<!-- wp:button {"className":"is-style-outline","style":{"color":{"text":"var(--wp--preset--color--warm-ivory)"},"border":{"radius":"0px","color":"rgba(251,249,245,0.35)"}}} -->
-				<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-warm-ivory-color has-text-color" href="/craft" style="border-color:rgba(251,249,245,0.35);border-radius:0px">EXPLORE CRAFT</a></div>
+				<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-warm-ivory-color has-text-color" href="<?php echo esc_url( home_url( '/craft' ) ); ?>" style="border-color:rgba(251,249,245,0.35);border-radius:0px">EXPLORE CRAFT</a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

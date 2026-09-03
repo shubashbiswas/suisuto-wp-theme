@@ -65,15 +65,15 @@ function suisuto_scripts() {
 		null
 	);
 
-	// Theme Main Stylesheet
-	wp_enqueue_style( 'suisuto-style', get_stylesheet_uri(), array(), '1.1.0' );
+	// Theme Main Stylesheet (Auto cache-busting in development)
+	wp_enqueue_style( 'suisuto-style', get_stylesheet_uri(), array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
 
 	// Theme Core Vanilla JS
 	wp_enqueue_script(
 		'suisuto-theme-js',
 		get_template_directory_uri() . '/assets/js/theme.js',
 		array(),
-		'1.1.0',
+		filemtime( get_template_directory() . '/assets/js/theme.js' ),
 		true
 	);
 }
@@ -112,6 +112,14 @@ function suisuto_register_pattern_categories() {
 		array(
 			'label'       => __( 'Sui Suto Forms', 'suisuto' ),
 			'description' => __( 'Refined luxury forms for newsletter and bespoke inquiry', 'suisuto' ),
+		)
+	);
+
+	register_block_pattern_category(
+		'suisuto-editorial',
+		array(
+			'label'       => __( 'Sui Suto Editorial & Journal', 'suisuto' ),
+			'description' => __( 'Editorial storytelling, articles, and craft narratives', 'suisuto' ),
 		)
 	);
 }
@@ -178,4 +186,33 @@ add_action( 'init', 'suisuto_register_block_styles' );
  * Load WordPress AI Connector & Block Bindings integration.
  */
 require_once get_template_directory() . '/inc/ai-connector.php';
+
+/**
+ * Multisite Subsite URL Harmonization
+ *
+ * Automatically adjusts root-relative internal links in rendered blocks
+ * (such as header navigation and footer template parts) so they stay within
+ * the current subsite (e.g., /bd/shop, /in/shop) instead of leaking to the root site.
+ */
+function suisuto_multisite_fix_relative_urls( $block_content, $block ) {
+	if ( ! is_multisite() || is_main_site() ) {
+		return $block_content;
+	}
+
+	$subsite_path = get_blog_details()->path; // e.g. "/bd/" or "/in/"
+	if ( empty( $subsite_path ) || '/' === $subsite_path ) {
+		return $block_content;
+	}
+
+	$subsite_path_trimmed = rtrim( $subsite_path, '/' ); // e.g. "/bd"
+	$subsite_slug = ltrim( $subsite_path, '/' ); // e.g. "bd/"
+
+	// Rewrite root-relative links like href="/shop" to href="/bd/shop"
+	// avoiding already prefixed links (href="/bd/..."), anchors (href="#..."), protocol-relative (href="//..."), wp core assets, etc.
+	$pattern = '/href="\/((?!' . preg_quote( $subsite_slug, '/' ) . '|#|\/|wp-content|wp-includes|wp-admin|wp-json)[^"]*)"/i';
+	$replacement = 'href="' . $subsite_path_trimmed . '/$1"';
+
+	return preg_replace( $pattern, $replacement, $block_content );
+}
+add_filter( 'render_block', 'suisuto_multisite_fix_relative_urls', 10, 2 );
 

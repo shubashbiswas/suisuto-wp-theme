@@ -21,6 +21,7 @@ The website should communicate craftsmanship, refinement, authenticity, rarity a
 Use:
 
 - WordPress
+- WordPress Multisite (Multi-region storefronts)
 - Gutenberg / WordPress Block Editor
 - WordPress Block Theme architecture
 - WooCommerce
@@ -857,6 +858,22 @@ The theme/code should be version-controlled using Git.
 The theme must not depend on hard-coded local URLs.
 
 Environment-specific configuration must remain outside the theme where appropriate.
+
+### Multisite Architecture & Multi-Region Storefronts
+
+Sui Suto operates on a WordPress Multisite network (subdirectory configuration) to provide dedicated regional luxury shopping experiences:
+
+- **Global Store** (`/`) — International shipping in USD ($)
+- **Bangladesh Store** (`/bd/`) — Domestic artisan delivery in BDT (৳)
+- **India Store** (`/in/`) — Regional subcontinent delivery in INR (₹)
+
+Development rules for Multisite compatibility:
+
+1. **No Hardcoded Root-Relative Links**: Never hardcode root-relative paths (e.g. `href="/shop"`, `href="/cart"`, `href="/checkout"`, `href="/about"`) inside templates, block patterns, or scripts.
+2. **Dynamic URL Resolution**: In PHP patterns and templates, always use `home_url()` or WooCommerce URL helpers (e.g., `wc_get_page_permalink( 'shop' )`, `wc_get_cart_url()`) so links dynamically adapt to the visitor's active subsite.
+3. **Subsite Link Isolation**: Maintain strict subsite isolation in header navigation and footer template parts. Internal links must not inadvertently leak cross-network back to the root global site.
+4. **WooCommerce Archive Inheritance**: Ensure product archives (`archive-product.html`) and product queries use modern query inheritance (`inherit: true`), allowing each regional subsite to render its respective catalog, local stock, and currency correctly.
+5. **Regional Switcher Compatibility**: The theme header and footer must cleanly integrate with the network regional switcher (`[geo_regional_switcher]`), preserving fluid transitions between regional stores.
 
 ---
 

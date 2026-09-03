@@ -31,7 +31,8 @@ Unlike conventional e-commerce themes burdened with visual noise and bloated fra
 
 * **⚡ Pure Block Theme (Full Site Editing)**: 100% native WordPress block templates, template parts, and `theme.json` configuration. Zero page builder dependency.
 * **🛍️ Quiet Luxury WooCommerce**: Bespoke product grids, editorial single-product showcase layouts, zoom hover states, and minimalist inquiry forms.
-* **🎨 4 Curated Pattern Categories**: Over 10 custom block patterns spanning Brand Stories, Editorial Hero Banners, Curated Collection Grids, and Bespoke Inquiry Forms.
+* **🌐 Multisite & Regional Store Ready**: Fully compatible with WordPress Multisite (subdirectories `/bd/`, `/in/`, etc.) featuring automatic subsite URL harmonization (`suisuto_multisite_fix_relative_urls`), query inheritance, and zero cross-store link leakage.
+* **🎨 5 Curated Pattern Categories**: 15 custom block patterns spanning Brand Stories, Editorial Hero Banners, Curated Collection Grids, Journal Essays, and Bespoke Inquiry Forms.
 * **🤖 WordPress AI Connector & Block Bindings**: Built-in dynamic block bindings (`suisuto/ai-product-meta`, `suisuto/craft-story`, `suisuto/artisan-origin`) connecting AI-assisted fashion narratives directly to native Gutenberg blocks.
 * **📱 Responsive & Fluid Typography**: Fluid clamp-based scale ensuring graceful scaling from 4K cinema displays down to mobile screens.
 * **💨 Ultra-Lightweight**: Zero external CSS frameworks (no Bootstrap, no Tailwind runtime). Pure modern CSS utilizing CSS variables and native Gutenberg presets.
@@ -59,23 +60,32 @@ Unlike conventional e-commerce themes burdened with visual noise and bloated fra
 
 ## 🧩 Block Pattern Library
 
-Sui Suto organizes patterns into 4 dedicated Gutenberg categories:
+Sui Suto organizes 15 custom block patterns into 5 dedicated Gutenberg categories:
 
 ### 1. `suisuto-luxury` (Brand & Stories)
 * **`hero-luxury`**: Split-screen editorial hero with asymmetric typography and seasonal campaign link.
 * **`brand-intro`**: Centered brand manifesto celebrating Bengal's artisanal heritage.
+* **`brand-story`**: Detailed narrative layout detailing brand origins, human craftsmanship, textile heritage metrics, and founder philosophy.
 * **`craft-story`**: Detailed textile lineage narrative highlighting Dhaka Muslin, Jamdani, and handloom weaving.
+* **`campaign-image`**: Full-width immersive campaign visual banner with subtle typographic overlay and delta coordinates.
+* **`quote`**: Monastic quiet luxury editorial pull quote celebrating artisan dedication and Bengal textile philosophy.
 
 ### 2. `suisuto-components` (Core UI)
 * **`hero-fullscreen`**: Immersive full-viewport campaign hero banner.
+* **`featured-collection`**: Editorial showcase highlighting a flagship seasonal capsule with large campaign photography, narrative typography, and dual CTAs.
 * **`collection-card`**: Elegant card layout with slow zoom hover micro-animation.
 * **`collection-grid`**: Editorial masonry collection gallery.
 * **`product-card`**: Minimalist product presentation card with clean pricing and material tags.
+* **`image-text`**: Asymmetric editorial split section pairing framed craft photography with deep textile storytelling and material specifications.
 
 ### 3. `suisuto-woocommerce` (Commerce)
+* **`product-grid`**: Pure Gutenberg 4-column catalog grid featuring curated artisanal creations with tags, prices, and slow zoom hover effects.
 * **`product-grid-featured`**: Luxury curated product showcase with responsive columns and subtle hover elevation.
 
-### 4. `suisuto-forms` (Refined Forms)
+### 4. `suisuto-editorial` (Journal & Essays)
+* **`journal-section`**: Three-column editorial story grid featuring curated essays on craft heritage, textile history, and artisanal methodology.
+
+### 5. `suisuto-forms` (Refined Forms)
 * **`newsletter`**: Minimalist luxury newsletter signup box.
 * **`form-inquiry`**: Bespoke atelier customer inquiry and private consultation form.
 
@@ -93,6 +103,21 @@ Located in [`inc/ai-connector.php`](file:///c:/Users/Ratan/Local%20Sites/multi/a
 ```
 
 This allows native core blocks (Paragraphs, Headings) to dynamically pull AI-generated or meta-driven textile narratives without custom shortcodes or third-party plugins.
+
+---
+
+## 🌐 Multisite & Multi-Region Storefronts
+
+Sui Suto is architected to power multi-region luxury houses using **WordPress Multisite (Subdirectories)**:
+
+* **Global Store** (`/`) — International orders in USD ($).
+* **Bangladesh Store** (`/bd/`) — Direct artisanal delivery in BDT (৳).
+* **India Store** (`/in/`) — Regional delivery in INR (₹).
+
+### Key Architectural Capabilities:
+* **Zero Subsite Link Leakage**: Built-in `suisuto_multisite_fix_relative_urls` dynamically filters rendered blocks so header navigation, footer links, and block patterns stay strictly within the current subsite (e.g. `/bd/shop`, `/in/craft`).
+* **Query & Catalog Inheritance**: Modern `wp:woocommerce/product-collection` with `inherit: true` ensures product archives automatically display the respective region's catalog, currency, and local pricing.
+* **Regional Switcher Integration**: Native support for the `[geo_regional_switcher]` shortcode in the sticky header tools bar.
 
 ---
 

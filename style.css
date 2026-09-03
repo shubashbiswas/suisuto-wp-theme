@@ -463,6 +463,67 @@ a:hover {
     display: none !important; /* Hide cluttered catalog add-to-cart buttons in favor of luxury single page experience */
 }
 
+/* Single Product Image Gallery Fix & Luxury Presentation */
+.woocommerce-product-gallery,
+.wp-block-woocommerce-product-image-gallery,
+.wp-block-woocommerce-product-image-gallery .woocommerce-product-gallery {
+    opacity: 1 !important;
+    position: relative;
+    width: 100%;
+}
+
+.woocommerce-product-gallery__wrapper {
+    margin: 0 !important;
+    position: relative;
+}
+
+.woocommerce-product-gallery__image {
+    background-color: #F0ECE4;
+    overflow: hidden;
+}
+
+.woocommerce-product-gallery__image img,
+.wp-block-woocommerce-product-image-gallery img,
+.woocommerce-product-gallery .wp-post-image {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.woocommerce-product-gallery__image:hover img {
+    transform: scale(1.03);
+}
+
+.woocommerce-product-gallery ol.flex-control-nav {
+    display: flex;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 1rem 0 0 0;
+    margin: 0;
+}
+
+.woocommerce-product-gallery ol.flex-control-nav li {
+    flex: 0 0 70px;
+}
+
+.woocommerce-product-gallery ol.flex-control-nav li img {
+    aspect-ratio: 1/1 !important;
+    object-fit: cover !important;
+    cursor: pointer;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    transition: border-color 0.25s ease, opacity 0.25s ease;
+}
+
+.woocommerce-product-gallery ol.flex-control-nav li img.flex-active,
+.woocommerce-product-gallery ol.flex-control-nav li img:hover {
+    border-color: var(--wp--preset--color--deep-ink, #111111);
+    opacity: 1;
+}
+
+
 
 /* ==========================================================================
    5. Collection Card Component & Grid
@@ -786,7 +847,204 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus,
 
 
 /* ==========================================================================
-   10. Responsive Breakpoints
+   10. Phase 3 Gutenberg Pattern Enhancements
+   ========================================================================== */
+
+/* Featured Collection Section */
+.suisuto-featured-collection-media {
+    position: relative;
+    overflow: hidden;
+}
+
+.suisuto-featured-collection-tag {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background-color: rgba(251, 249, 245, 0.94);
+    padding: 0.35rem 0.85rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    backdrop-filter: blur(6px);
+    z-index: 2;
+}
+
+.suisuto-collection-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.suisuto-attribute-pill {
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    padding: 0.55rem 0.95rem;
+    background-color: rgba(251, 249, 245, 0.6);
+    display: flex;
+    flex-direction: column;
+}
+
+.suisuto-pill-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    text-transform: uppercase;
+}
+
+.suisuto-pill-value {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    margin-top: 0.2rem;
+}
+
+/* Brand Story Section */
+.suisuto-brand-story-media {
+    position: relative;
+}
+
+.suisuto-story-metrics {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    padding: 1.5rem 0;
+}
+
+.suisuto-metric-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.suisuto-metric-number {
+    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', serif);
+    font-size: 2.25rem;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-metric-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+    font-weight: 600;
+    margin-top: 0.35rem;
+}
+
+/* Editorial Image & Text Section Specification Rows */
+.suisuto-spec-list {
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    padding-top: 0.75rem;
+}
+
+.suisuto-spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+    font-size: 0.84rem;
+}
+
+.suisuto-spec-key {
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+.suisuto-spec-value {
+    color: var(--wp--preset--color--deep-ink, #111111);
+    font-weight: 500;
+}
+
+/* Journal Section & Editorial Cards */
+.suisuto-journal-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-journal-card-image-wrap {
+    position: relative;
+    overflow: hidden;
+    background-color: #F0ECE4;
+}
+
+.suisuto-journal-card-image-wrap img,
+.suisuto-journal-image {
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-journal-card:hover .suisuto-journal-card-image-wrap img,
+.suisuto-journal-card:hover .suisuto-journal-image {
+    transform: scale(1.05);
+}
+
+.suisuto-journal-meta {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+    margin: 0 0 0.5rem 0;
+}
+
+.suisuto-journal-title {
+    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', Georgia, serif) !important;
+    font-size: 1.28rem !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+    margin: 0 0 0.6rem 0 !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+.suisuto-journal-title a {
+    color: inherit;
+    transition: color 0.25s ease;
+}
+
+.suisuto-journal-title a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+.suisuto-journal-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0 0 1rem 0;
+}
+
+.suisuto-journal-link a {
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.suisuto-journal-link a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+    border-bottom-color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+/* Editorial Pull Quote */
+.suisuto-pull-quote {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   11. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 992px) {
     .site-header {
@@ -797,6 +1055,21 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus,
     .suisuto-form-row {
         flex-direction: column;
         gap: 0;
+    }
+
+    .suisuto-story-metrics {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .suisuto-collection-attributes {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .suisuto-spec-row {
+        flex-direction: column;
+        gap: 0.25rem;
     }
 }
 
@@ -817,5 +1090,21 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus,
         padding-bottom: 2.5rem !important;
         padding-left: 1.25rem !important;
         padding-right: 1.25rem !important;
+    }
+
+    .suisuto-featured-collection-section,
+    .suisuto-brand-story-section,
+    .suisuto-journal-section,
+    .suisuto-product-grid-section,
+    .suisuto-image-text-section,
+    .suisuto-editorial-quote-section {
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.5rem !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    .suisuto-journal-card {
+        margin-bottom: 2.5rem;
     }
 }

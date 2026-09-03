@@ -77,7 +77,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 4. Accessible smooth focus indicators for buttons and interactive controls
+    // 4. Product Gallery Visibility Safeguard
+    const productGalleries = document.querySelectorAll('.woocommerce-product-gallery');
+    productGalleries.forEach(function (gallery) {
+        gallery.style.opacity = '1';
+    });
+
+    // 5. Accessible smooth focus indicators for buttons and interactive controls
     document.body.addEventListener('keydown', function (e) {
         if (e.key === 'Tab') {
             document.body.classList.add('user-is-tabbing');
