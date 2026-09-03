@@ -85,7 +85,7 @@ a:hover {
 
 
 /* ==========================================================================
-   2. Header & Navigation Component
+   2. Header & Navigation Component (25% - 50% - 25% Grid Column Design)
    ========================================================================== */
 .site-header {
     position: sticky;
@@ -96,6 +96,78 @@ a:hover {
     -webkit-backdrop-filter: blur(12px);
     background-color: rgba(251, 249, 245, 0.92);
     border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+    box-sizing: border-box !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    padding-left: clamp(1.5rem, 3.5vw, 3.5rem) !important;
+    padding-right: clamp(2rem, 4.5vw, 4.5rem) !important;
+}
+
+@media (min-width: 992px) {
+    .site-header {
+        display: grid !important;
+        grid-template-columns: 25% 50% 25% !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .site-header-brand {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .site-header-nav,
+    .wp-block-navigation.site-header-nav {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .site-header-nav .wp-block-navigation__container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .site-header-tools {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        gap: 1.25rem !important;
+        padding-right: 0.5rem !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .site-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.75rem !important;
+    }
+
+    .site-header-brand {
+        display: flex !important;
+        align-items: center !important;
+        flex: 1 1 auto !important;
+    }
+
+    .site-header-tools {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 0.85rem !important;
+    }
 }
 
 .site-header.is-scrolled {
@@ -184,24 +256,63 @@ a:hover {
     gap: 1.25rem;
 }
 
-.header-account-link a {
-    color: var(--wp--preset--color--deep-ink, #111111);
-    letter-spacing: 0.16em;
-    font-weight: 500;
-    font-size: 0.75rem;
+.site-header-tools p {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
 }
 
-.header-account-link a:hover {
-    color: var(--wp--preset--color--muted-clay, #A87C6D);
+.site-header-tools br {
+    display: none !important;
+}
+
+/* Header Account Icon Link */
+.header-account-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    padding: 0.25rem !important;
+    transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+    opacity: 0.9;
+}
+
+.header-account-icon:hover {
+    color: var(--wp--preset--color--antique-brass, #C5A059) !important;
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.header-account-icon svg {
+    display: block;
+    width: 19px;
+    height: 19px;
 }
 
 /* Mini Cart Widget */
+.site-header-tools .wc-block-mini-cart {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: 0.5rem !important;
+}
+
 .wc-block-mini-cart__button {
     background: transparent !important;
     border: none !important;
-    padding: 0.25rem !important;
+    padding: 0.35rem 0.5rem !important;
     cursor: pointer !important;
     color: var(--wp--preset--color--deep-ink, #111111) !important;
+    transition: color 0.25s ease, transform 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.wc-block-mini-cart__button:hover {
+    color: var(--wp--preset--color--antique-brass, #C5A059) !important;
+    transform: translateY(-1px);
 }
 
 .wc-block-mini-cart__badge {
@@ -212,7 +323,88 @@ a:hover {
     border-radius: 50% !important;
 }
 
-/* Regional Switcher in Header */
+/* Regional Switcher in Header (Compact Pill: style="cart") */
+.site-header-tools .grr-header-cart-trigger,
+.site-header-tools .grr-footer-trigger {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    padding: 0.25rem 0.55rem !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 1px solid rgba(17, 17, 17, 0.2) !important;
+    border-radius: 9999px !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transform: none !important;
+    box-shadow: none !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    vertical-align: middle !important;
+}
+
+.site-header-tools .grr-header-cart-trigger:hover,
+.site-header-tools .grr-footer-trigger:hover {
+    background: rgba(17, 17, 17, 0.04) !important;
+    border-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: none !important;
+}
+
+.site-header-tools .grr-location-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: currentColor !important;
+}
+
+.site-header-tools .grr-location-icon svg {
+    width: 12px !important;
+    height: 12px !important;
+    stroke-width: 2 !important;
+    display: block !important;
+}
+
+.site-header-tools .grr-header-code {
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    color: currentColor !important;
+    text-transform: uppercase !important;
+}
+
+.site-header-tools .grr-trigger-text {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.12em !important;
+    color: inherit !important;
+    gap: 3px !important;
+}
+
+.site-header-tools .grr-trigger-text strong {
+    font-weight: 600 !important;
+    color: inherit !important;
+}
+
+.site-header-tools .grr-trigger-chevron {
+    font-size: 8px !important;
+    margin-left: 2px !important;
+    opacity: 0.7 !important;
+    color: inherit !important;
+    transition: transform 0.2s ease !important;
+}
+
+.site-header-tools .grr-footer-trigger:hover .grr-trigger-chevron {
+    transform: translateY(1px);
+    opacity: 1;
+}
+
 .grr-compact-switcher, .grr-frontend-switcher {
     display: inline-flex;
     align-items: center;
@@ -3270,6 +3462,83 @@ table.shop_table .product-name a:hover {
     .suisuto-category-chip {
         white-space: nowrap;
     }
+}
+
+/* ==========================================================================
+   Footer Regional Switcher Component
+   ========================================================================== */
+.site-footer .grr-footer-trigger {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 0.35rem 0.75rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 4px !important;
+    color: #C5BEB3 !important;
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+}
+
+.site-footer .grr-footer-trigger:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--wp--preset--color--antique-brass, #C5A059) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: none !important;
+}
+
+.site-footer .grr-location-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--wp--preset--color--antique-brass, #C5A059) !important;
+}
+
+.site-footer .grr-location-icon svg {
+    width: 12px !important;
+    height: 12px !important;
+    stroke-width: 2 !important;
+    display: block !important;
+}
+
+.site-footer .grr-trigger-text {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.12em !important;
+    color: inherit !important;
+}
+
+.site-footer .grr-trigger-text strong {
+    font-weight: 600 !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+}
+
+.site-footer .grr-trigger-chevron {
+    font-size: 8px !important;
+    margin-left: 2px !important;
+    opacity: 0.7 !important;
+    color: inherit !important;
+    transition: transform 0.2s ease !important;
+}
+
+.site-footer .grr-footer-trigger:hover .grr-trigger-chevron {
+    transform: translateY(1px) !important;
+    opacity: 1 !important;
+}
+
+.site-footer p {
+    margin: 0 !important;
+}
+
+.site-footer br {
+    display: none !important;
 }
 
 

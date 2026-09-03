@@ -245,3 +245,136 @@ function suisuto_custom_order_button_text(): string {
 	return __( 'PLACE ORDER &amp; DISPATCH', 'suisuto' );
 }
 add_filter( 'woocommerce_order_button_text', 'suisuto_custom_order_button_text' );
+
+/**
+ * Fallback Favicon Support
+ */
+function suisuto_fallback_favicon(): void {
+	if ( ! has_site_icon() ) {
+		$favicon_url = get_template_directory_uri() . '/assets/images/logo/favicon-b.webp';
+		echo '<link rel="icon" type="image/webp" href="' . esc_url( $favicon_url ) . '">' . "\n";
+	}
+}
+add_action( 'wp_head', 'suisuto_fallback_favicon', 100 );
+
+
+/**
+ * --------------------------------------------------------------------------
+ * Core Editorial Pages Auto-Provisioning & Routing (Phase 5)
+ * --------------------------------------------------------------------------
+ * Ensures pages for 'craft', 'about', 'journal', and 'collections' exist
+ * in the WordPress database so block templates resolve natively (200 OK).
+ */
+function suisuto_auto_provision_core_pages(): void {
+	$core_pages = array(
+		'craft'       => array(
+			'title'   => 'Craft & Heritage',
+			'content' => '<!-- wp:paragraph --><p>Living wefts of Bengal. Five centuries of human dexterity, riverine climate, and handloom mastery.</p><!-- /wp:paragraph -->',
+		),
+		'about'       => array(
+			'title'   => 'About the Atelier',
+			'content' => '<!-- wp:paragraph --><p>Quiet luxury rooted in Bengal. Reclaiming centuries of textile majesty for the contemporary world.</p><!-- /wp:paragraph -->',
+		),
+		'journal'     => array(
+			'title'   => 'Journal & Dispatches',
+			'content' => '<!-- wp:paragraph --><p>Reflections on slow fashion, textile archaeology, human craftsmanship, and the living arts of Bengal.</p><!-- /wp:paragraph -->',
+		),
+		'collections' => array(
+			'title'   => 'Curated Collections',
+			'content' => '<!-- wp:paragraph --><p>Handloom saris, tailored couture, and rare heirloom textiles woven in rhythmic cadence with Bengal seasonal cycles.</p><!-- /wp:paragraph -->',
+		),
+		'contact'     => array(
+			'title'   => 'Client Advisory & Concierge',
+			'content' => '<!-- wp:paragraph --><p>Private appointments, bespoke bridal handloom commissions, and atelier concierge inquiries.</p><!-- /wp:paragraph -->',
+		),
+		'terms'       => array(
+			'title'   => 'Terms of Service',
+			'content' => '<!-- wp:paragraph --><p>The protocols, client commitments, and craftsmanship standards governing commissions, orders, and services with the House of Sui Suto.</p><!-- /wp:paragraph -->',
+		),
+		'privacy-policy' => array(
+			'title'   => 'Privacy Policy',
+			'content' => '<!-- wp:paragraph --><p>How the House of Sui Suto safeguards client discretion, personal measurements, transactional records, and private communications.</p><!-- /wp:paragraph -->',
+		),
+	);
+
+	$needs_flush = false;
+
+	foreach ( $core_pages as $slug => $data ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+		if ( ! $page ) {
+			$page_id = wp_insert_post(
+				array(
+					'post_title'     => $data['title'],
+					'post_name'      => $slug,
+					'post_content'   => $data['content'],
+					'post_status'    => 'publish',
+					'post_type'      => 'page',
+					'comment_status' => 'closed',
+					'ping_status'    => 'closed',
+				)
+			);
+			if ( $page_id && ! is_wp_error( $page_id ) ) {
+				$needs_flush = true;
+			}
+		}
+	}
+
+	if ( $needs_flush ) {
+		flush_rewrite_rules( false );
+	}
+}
+add_action( 'init', 'suisuto_auto_provision_core_pages', 20 );
+
+/**
+ * Intercept 404s for core editorial pages and resolve directly to block templates.
+ */
+function suisuto_fallback_core_pages_404( bool $preempt, \WP_Query $query ): bool {
+	if ( ! $query->is_main_query() ) {
+		return $preempt;
+	}
+
+	$request_path = trim( parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) ?? '', '/' );
+	$parts        = explode( '/', $request_path );
+	$slug         = end( $parts );
+
+	$core_slugs = array( 'craft', 'about', 'journal', 'collections', 'contact', 'terms', 'privacy-policy' );
+	if ( in_array( $slug, $core_slugs, true ) ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+		if ( ! $page ) {
+			$page_id = wp_insert_post(
+				array(
+					'post_title'     => ucwords( str_replace( '-', ' ', $slug ) ),
+					'post_name'      => $slug,
+					'post_status'    => 'publish',
+					'post_type'      => 'page',
+					'comment_status' => 'closed',
+					'ping_status'    => 'closed',
+				)
+			);
+			if ( $page_id && ! is_wp_error( $page_id ) ) {
+				$page = get_post( $page_id );
+				flush_rewrite_rules( false );
+			}
+		}
+
+		if ( $page instanceof \WP_Post ) {
+			$query->query(
+				array(
+					'page_id'   => $page->ID,
+					'post_type' => 'page',
+				)
+			);
+			$query->is_page           = true;
+			$query->is_singular       = true;
+			$query->is_404            = false;
+			$query->queried_object    = $page;
+			$query->queried_object_id = $page->ID;
+			status_header( 200 );
+			return true;
+		}
+	}
+
+	return $preempt;
+}
+add_filter( 'pre_handle_404', 'suisuto_fallback_core_pages_404', 10, 2 );
+

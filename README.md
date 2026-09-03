@@ -156,6 +156,9 @@ wp-content/themes/suisuto/
     ├── page-collections.html     # Curated seasonal editions and capsules showcase
     ├── page-craft.html           # Bengal craft lineage, loom process & ethical attribution
     ├── page-about.html           # Atelier manifesto, brand story & commitment metrics
+    ├── page-contact.html / contact.html # Private concierge & atelier bespoke inquiry
+    ├── page-terms.html / terms.html     # Terms of service, commissions & craft standards
+    ├── page-privacy-policy.html / privacy-policy.html # Client discretion & privacy protocols
     ├── page-journal.html / journal.html # High-fashion editorial journal & craft essays
     ├── archive-product.html      # Quiet luxury shop catalog & product archive
     ├── taxonomy-product_cat.html # Category archive with editorial term description
