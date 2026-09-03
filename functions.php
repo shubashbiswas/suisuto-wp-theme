@@ -66,7 +66,16 @@ function suisuto_scripts() {
 	);
 
 	// Theme Main Stylesheet
-	wp_enqueue_style( 'suisuto-style', get_stylesheet_uri(), array(), '1.0.0' );
+	wp_enqueue_style( 'suisuto-style', get_stylesheet_uri(), array(), '1.1.0' );
+
+	// Theme Core Vanilla JS
+	wp_enqueue_script(
+		'suisuto-theme-js',
+		get_template_directory_uri() . '/assets/js/theme.js',
+		array(),
+		'1.1.0',
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'suisuto_scripts' );
 
@@ -77,8 +86,16 @@ function suisuto_register_pattern_categories() {
 	register_block_pattern_category(
 		'suisuto-luxury',
 		array(
-			'label'       => __( 'Sui Suto Luxury Patterns', 'suisuto' ),
+			'label'       => __( 'Sui Suto Brand & Stories', 'suisuto' ),
 			'description' => __( 'Quiet luxury patterns for Sui Suto brand storytelling', 'suisuto' ),
+		)
+	);
+
+	register_block_pattern_category(
+		'suisuto-components',
+		array(
+			'label'       => __( 'Sui Suto Components', 'suisuto' ),
+			'description' => __( 'Core UI components: heroes, cards, banners', 'suisuto' ),
 		)
 	);
 
@@ -86,8 +103,79 @@ function suisuto_register_pattern_categories() {
 		'suisuto-woocommerce',
 		array(
 			'label'       => __( 'Sui Suto Commerce', 'suisuto' ),
-			'description' => __( 'Minimalist luxury WooCommerce layouts', 'suisuto' ),
+			'description' => __( 'Minimalist luxury WooCommerce layouts and product displays', 'suisuto' ),
+		)
+	);
+
+	register_block_pattern_category(
+		'suisuto-forms',
+		array(
+			'label'       => __( 'Sui Suto Forms', 'suisuto' ),
+			'description' => __( 'Refined luxury forms for newsletter and bespoke inquiry', 'suisuto' ),
 		)
 	);
 }
 add_action( 'init', 'suisuto_register_pattern_categories' );
+
+/**
+ * Register Block Styles for Native Gutenberg Blocks
+ */
+function suisuto_register_block_styles() {
+	// Button Styles
+	register_block_style(
+		'core/button',
+		array(
+			'name'  => 'fill',
+			'label' => __( 'Luxury Solid (Default)', 'suisuto' ),
+			'is_default' => true,
+		)
+	);
+
+	register_block_style(
+		'core/button',
+		array(
+			'name'  => 'outline',
+			'label' => __( 'Luxury Outline', 'suisuto' ),
+		)
+	);
+
+	register_block_style(
+		'core/button',
+		array(
+			'name'  => 'underline',
+			'label' => __( 'Minimalist Underline', 'suisuto' ),
+		)
+	);
+
+	register_block_style(
+		'core/button',
+		array(
+			'name'  => 'brass',
+			'label' => __( 'Antique Brass Accent', 'suisuto' ),
+		)
+	);
+
+	// Image Styles
+	register_block_style(
+		'core/image',
+		array(
+			'name'  => 'luxury-zoom',
+			'label' => __( 'Slow Zoom Hover', 'suisuto' ),
+		)
+	);
+
+	register_block_style(
+		'core/image',
+		array(
+			'name'  => 'editorial-frame',
+			'label' => __( 'Editorial Framing', 'suisuto' ),
+		)
+	);
+}
+add_action( 'init', 'suisuto_register_block_styles' );
+
+/**
+ * Load WordPress AI Connector & Block Bindings integration.
+ */
+require_once get_template_directory() . '/inc/ai-connector.php';
+

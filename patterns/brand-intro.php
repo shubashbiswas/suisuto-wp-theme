@@ -2,8 +2,11 @@
 /**
  * Title: Brand Introduction
  * Slug: suisuto/brand-intro
+ * Description: Minimalist luxury manifesto section establishing the brand philosophy of quiet luxury, textile poetry, and mindful curation.
  * Categories: suisuto-luxury, text
- * Keywords: brand, intro, statement, luxury
+ * Keywords: brand, intro, statement, luxury, manifesto, philosophy, typography, bengal
+ * Block Types: core/post-content
+ * Inserter: true
  */
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"7rem","bottom":"7rem","left":"2rem","right":"2rem"}},"color":{"background":"var(--wp--preset--color--warm-ivory)"}},"layout":{"type":"constrained"}} -->

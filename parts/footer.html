@@ -1,72 +1,79 @@
-<!-- wp:group {"tagName":"footer","align":"full","style":{"spacing":{"padding":{"top":"5rem","bottom":"3rem","left":"2.5rem","right":"2.5rem"}},"color":{"background":"var(--wp--preset--color--deep-ink)","text":"var(--wp--preset--color--warm-ivory)"}},"layout":{"type":"constrained"}} -->
-<footer class="wp-block-group alignfull" style="background-color:var(--wp--preset--color--deep-ink);color:var(--wp--preset--color--warm-ivory);padding-top:5rem;padding-bottom:3rem;padding-left:2.5rem;padding-right:2.5rem">
+<!-- wp:group {"tagName":"footer","align":"full","className":"site-footer","style":{"spacing":{"padding":{"top":"6rem","bottom":"3.5rem","left":"2.5rem","right":"2.5rem"}},"color":{"background":"var(--wp--preset--color--deep-ink)","text":"var(--wp--preset--color--warm-ivory)"}},"layout":{"type":"constrained"}} -->
+<footer class="wp-block-group alignfull site-footer" style="background-color:var(--wp--preset--color--deep-ink);color:var(--wp--preset--color--warm-ivory);padding-top:6rem;padding-bottom:3.5rem;padding-left:2.5rem;padding-right:2.5rem">
 
-	<!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"bottom":"4rem"}}}} -->
-	<div class="wp-block-columns alignwide" style="margin-bottom:4rem">
+	<!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"bottom":"4.5rem"},"blockGap":{"top":"3rem","left":"2.5rem"}}}} -->
+	<div class="wp-block-columns alignwide" style="margin-bottom:4.5rem">
 		
-		<!-- wp:column {"width":"35%"} -->
-		<div class="wp-block-column" style="flex-basis:35%">
-			<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--wp--preset--font-family--serif)","letterSpacing":"0.2em","fontSize":"1.5rem"}}} -->
-			<h3 style="font-family:var(--wp--preset--font-family--serif);font-size:1.5rem;letter-spacing:0.2em">SUI SUTO</h3>
+		<!-- wp:column {"width":"34%"} -->
+		<div class="wp-block-column" style="flex-basis:34%">
+			<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var(--wp--preset--font-family--serif)","letterSpacing":"0.25em","fontSize":"1.6rem","fontWeight":"500"}}} -->
+			<h3 style="font-family:var(--wp--preset--font-family--serif);font-size:1.6rem;font-weight:500;letter-spacing:0.25em;margin-bottom:1rem">SUI SUTO</h3>
 			<!-- /wp:heading -->
 
-			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.88rem","lineHeight":"1.8"},"color":{"text":"#C5BEB3"}}} -->
-			<p style="color:#C5BEB3;font-size:0.88rem;line-height:1.8">Quiet luxury rooted in Bengal textile heritage. Bringing regional craftsmanship to the global contemporary fashion landscape.</p>
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.88rem","lineHeight":"1.85"},"color":{"text":"#C5BEB3"}}} -->
+			<p style="color:#C5BEB3;font-size:0.88rem;line-height:1.85;margin-bottom:1.5rem">Quiet luxury rooted in Bengal textile heritage. Bringing centuries of regional handloom craftsmanship to the global contemporary fashion landscape through restraint and modern tailoring.</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.72rem","letterSpacing":"0.2em","fontWeight":"500"}},"color":{"text":"var(--wp--preset--color--antique-brass)"}} -->
+			<p class="has-antique-brass-color has-text-color" style="font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase">ATELIER: KOLKATA &bull; DHAKA &bull; GLOBAL</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"width":"20%"} -->
-		<div class="wp-block-column" style="flex-basis:20%">
-			<!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.18em","fontFamily":"var(--wp--preset--font-family--body)"}}} -->
-			<h4 style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase">Collections</h4>
+		<!-- wp:column {"width":"22%"} -->
+		<div class="wp-block-column" style="flex-basis:22%">
+			<!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.2em","fontFamily":"var(--wp--preset--font-family--body)","fontWeight":"600"}}} -->
+			<h4 style="font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.25rem">Collections</h4>
 			<!-- /wp:heading -->
 
-			<!-- wp:list {"style":{"typography":{"fontSize":"0.85rem","lineHeight":"2.2"},"color":{"text":"#C5BEB3"}},"className":"is-style-no-bullets"} -->
-			<ul class="is-style-no-bullets" style="color:#C5BEB3;font-size:0.85rem;line-height:2.2">
+			<!-- wp:list {"style":{"typography":{"fontSize":"0.82rem","lineHeight":"2.3"},"color":{"text":"#C5BEB3"}},"className":"is-style-no-bullets footer-nav-list"} -->
+			<ul class="is-style-no-bullets footer-nav-list" style="color:#C5BEB3;font-size:0.82rem;line-height:2.3;list-style:none;padding-left:0">
 				<li><a href="/shop">New Arrivals</a></li>
-				<li><a href="/shop?category=handloom-saris">Handloom Saris</a></li>
-				<li><a href="/shop?category=tailored-couture">Tailored Couture</a></li>
-				<li><a href="/shop?category=artisan-textiles">Artisan Textiles</a></li>
+				<li><a href="/product-category/handloom-saris">Handloom Saris</a></li>
+				<li><a href="/product-category/tailored-couture">Tailored Couture</a></li>
+				<li><a href="/product-category/mens-atelier">Men's Atelier</a></li>
+				<li><a href="/product-category/indigo-edit">The Indigo Edit</a></li>
+				<li><a href="/product-category/artisan-textiles">Artisan Textiles</a></li>
 			</ul>
 			<!-- /wp:list -->
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"width":"20%"} -->
-		<div class="wp-block-column" style="flex-basis:20%">
-			<!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.18em","fontFamily":"var(--wp--preset--font-family--body)"}}} -->
-			<h4 style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase">Craft &amp; House</h4>
+		<!-- wp:column {"width":"22%"} -->
+		<div class="wp-block-column" style="flex-basis:22%">
+			<!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.2em","fontFamily":"var(--wp--preset--font-family--body)","fontWeight":"600"}}} -->
+			<h4 style="font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.25rem">Craft &amp; Maison</h4>
 			<!-- /wp:heading -->
 
-			<!-- wp:list {"style":{"typography":{"fontSize":"0.85rem","lineHeight":"2.2"},"color":{"text":"#C5BEB3"}},"className":"is-style-no-bullets"} -->
-			<ul class="is-style-no-bullets" style="color:#C5BEB3;font-size:0.85rem;line-height:2.2">
-				<li><a href="/craft">The Loom &amp; Craft</a></li>
-				<li><a href="/about">Brand Heritage</a></li>
-				<li><a href="/journal">Journal &amp; Stories</a></li>
-				<li><a href="/sustainability">Textile Sustainability</a></li>
+			<!-- wp:list {"style":{"typography":{"fontSize":"0.82rem","lineHeight":"2.3"},"color":{"text":"#C5BEB3"}},"className":"is-style-no-bullets footer-nav-list"} -->
+			<ul class="is-style-no-bullets footer-nav-list" style="color:#C5BEB3;font-size:0.82rem;line-height:2.3;list-style:none;padding-left:0">
+				<li><a href="/craft">The Loom &amp; Technique</a></li>
+				<li><a href="/about">Maison Philosophy</a></li>
+				<li><a href="/journal">Journal &amp; Dispatches</a></li>
+				<li><a href="/craft#sustainability">Textile Traceability</a></li>
+				<li><a href="/craft#artisans">Master Weaver Guilds</a></li>
 			</ul>
 			<!-- /wp:list -->
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"width":"25%"} -->
-		<div class="wp-block-column" style="flex-basis:25%">
-			<!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.18em","fontFamily":"var(--wp--preset--font-family--body)"}}} -->
-			<h4 style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase">Private Concierge</h4>
+		<!-- wp:column {"width":"22%"} -->
+		<div class="wp-block-column" style="flex-basis:22%">
+			<!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.2em","fontFamily":"var(--wp--preset--font-family--body)","fontWeight":"600"}}} -->
+			<h4 style="font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.25rem">Private Concierge</h4>
 			<!-- /wp:heading -->
 
-			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.85rem","lineHeight":"1.8"},"color":{"text":"#C5BEB3"}}} -->
-			<p style="color:#C5BEB3;font-size:0.85rem;line-height:1.8">Subscribe for private collection previews and artisanal release notes.</p>
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.82rem","lineHeight":"1.75"},"color":{"text":"#C5BEB3"}}} -->
+			<p style="color:#C5BEB3;font-size:0.82rem;line-height:1.75;margin-bottom:1.25rem">Bespoke commissions, bridal trunk shows, and private consultations.</p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-			<div class="wp-block-group">
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.15em"}}} -->
-				<p style="font-size:0.75rem;letter-spacing:0.15em"><a href="/contact" style="border-bottom:1px solid #C5A059;padding-bottom:2px">INQUIRE AT SUI SUTO &rarr;</a></p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:group -->
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.18em","fontWeight":"600"}}} -->
+			<p style="font-size:0.75rem;font-weight:600;letter-spacing:0.18em;margin-bottom:1.5rem"><a href="/contact" class="footer-concierge-link" style="border-bottom:1px solid var(--wp--preset--color--antique-brass);padding-bottom:3px">INQUIRE AT SUI SUTO &rarr;</a></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","lineHeight":"1.6"},"color":{"text":"#888888"}}} -->
+			<p style="color:#888888;font-size:0.75rem;line-height:1.6">Global white-glove courier &bull; Insured delivery</p>
+			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->
 
@@ -74,18 +81,32 @@
 	<!-- /wp:columns -->
 
 	<!-- wp:separator {"style":{"color":{"background":"rgba(255,255,255,0.08)"}},"className":"is-style-wide"} -->
-	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" style="background-color:rgba(255,255,255,0.08)"/>
+	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" style="background-color:rgba(255,255,255,0.08);margin-bottom:2rem"/>
 	<!-- /wp:separator -->
 
-	<!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between"},"style":{"spacing":{"padding":{"top":"1.5rem"}},"typography":{"fontSize":"0.75rem"},"color":{"text":"#888888"}}} -->
-	<div class="wp-block-group alignwide" style="color:#888888;font-size:0.75rem;padding-top:1.5rem">
+	<!-- wp:group {"align":"wide","className":"footer-bottom-bar","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"},"style":{"typography":{"fontSize":"0.72rem","letterSpacing":"0.12em"},"color":{"text":"#888888"}}} -->
+	<div class="wp-block-group alignwide footer-bottom-bar" style="color:#888888;font-size:0.72rem;letter-spacing:0.12em">
 		<!-- wp:paragraph -->
 		<p>&copy; 2026 SUI SUTO. ALL RIGHTS RESERVED.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph -->
-		<p>BENGAL &times; CRAFTSMANSHIP &times; CONTEMPORARY LUXURY</p>
+		<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.2em"}}} -->
+		<p style="letter-spacing:0.2em">BENGAL &times; CRAFTSMANSHIP &times; CONTEMPORARY LUXURY</p>
 		<!-- /wp:paragraph -->
+
+		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"1.5rem"}}} -->
+		<div class="wp-block-group">
+			<!-- wp:paragraph -->
+			<p><a href="/privacy-policy">PRIVACY</a></p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p><a href="/terms">TERMS</a></p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p><a href="/craft">PROVENANCE</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 

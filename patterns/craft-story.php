@@ -2,8 +2,11 @@
 /**
  * Title: Craft Story Spotlight
  * Slug: suisuto/craft-story
+ * Description: Editorial two-column feature detailing artisanal heritage, handloom weaving techniques, and tactile provenance.
  * Categories: suisuto-luxury, media
- * Keywords: craft, loom, textile, story, artisan
+ * Keywords: craft, loom, textile, story, artisan, handloom, jamdani, heritage, provenance, quiet luxury
+ * Block Types: core/post-content
+ * Inserter: true
  */
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"6rem","bottom":"6rem","left":"2rem","right":"2rem"}},"color":{"background":"var(--wp--preset--color--soft-white)"}},"layout":{"type":"constrained"}} -->

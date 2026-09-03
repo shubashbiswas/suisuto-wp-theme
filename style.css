@@ -4,7 +4,7 @@ Theme URI: https://suisuto.com
 Author: Sui Suto Design Studio
 Author URI: https://suisuto.com
 Description: Production-quality luxury fashion WordPress Block Theme for WooCommerce, rooted in Bengal textile heritage. Quiet luxury, minimalist typography, and native Gutenberg architecture.
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 6.5
 Tested up to: 6.6
 Requires PHP: 7.4
@@ -14,7 +14,9 @@ Tags: block-theme, e-commerce, custom-colors, custom-menu, custom-logo, featured
 Sui Suto — Quiet Luxury Rooted in Bengal.
 */
 
-/* Reset & Global Typography Adjustments */
+/* ==========================================================================
+   1. Reset & Global Polish
+   ========================================================================== */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -33,9 +35,10 @@ body {
     color: var(--wp--preset--color--deep-ink, #111111);
     font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
     overflow-x: hidden;
+    line-height: 1.7;
 }
 
-/* Image behavior */
+/* Image Behavior */
 img, svg, video {
     max-width: 100%;
     height: auto;
@@ -48,92 +51,27 @@ img, svg, video {
     color: var(--wp--preset--color--warm-ivory, #FBF9F5);
 }
 
-/* Links */
+/* Base Links */
 a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
 a:hover {
-    opacity: 0.75;
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
 }
 
-/* Header Luxury Scroll behavior */
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
-    backdrop-filter: blur(8px);
-    background-color: rgba(251, 249, 245, 0.9);
-    border-bottom: 1px solid rgba(17, 17, 17, 0.06);
-}
-
-/* Navigation items styling */
-.wp-block-navigation .wp-block-navigation-item__label {
-    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif);
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.wp-block-navigation .wp-block-navigation-item a {
-    padding: 0.5rem 0.75rem;
-}
-
-/* Product Card Styling */
-.wc-block-grid__product, .product {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.wc-block-grid__product-image img, .woocommerce-loop-product__link img {
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.wc-block-grid__product:hover .wc-block-grid__product-image img,
-.woocommerce-loop-product__link:hover img {
-    transform: scale(1.03);
-}
-
-.wc-block-grid__product-title, .woocommerce-loop-product__title {
-    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', serif) !important;
-    font-size: 1.15rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.02em !important;
-    margin-top: 1rem !important;
-    margin-bottom: 0.25rem !important;
-}
-
-.wc-block-grid__product-price, .price {
-    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
-    font-size: 0.85rem !important;
-    color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
-    letter-spacing: 0.05em !important;
-}
-
-/* Buttons Reset & Luxury Styling */
-.wp-block-button__link, button.button, input.button, a.button {
-    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
-    font-size: 0.78rem !important;
-    letter-spacing: 0.2em !important;
-    text-transform: uppercase !important;
-    font-weight: 600 !important;
-    padding: 1rem 2.25rem !important;
-    border-radius: 0 !important;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.wp-block-button__link:hover, button.button:hover {
-    letter-spacing: 0.25em !important;
+/* Accessible Focus States (WCAG 2.2 AA) */
+:focus-visible {
+    outline: 2px solid var(--wp--preset--color--antique-brass, #C5A059) !important;
+    outline-offset: 3px !important;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
 }
 ::-webkit-scrollbar-track {
     background: var(--wp--preset--color--warm-ivory, #FBF9F5);
@@ -145,7 +83,136 @@ a:hover {
     background: #A87C6D;
 }
 
-/* Micro Dropdown Regional Switcher for Sui Suto Header */
+
+/* ==========================================================================
+   2. Header & Navigation Component
+   ========================================================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(251, 249, 245, 0.92);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+.site-header.is-scrolled {
+    background-color: rgba(251, 249, 245, 0.98);
+    border-bottom-color: rgba(17, 17, 17, 0.1);
+    box-shadow: 0 4px 24px rgba(17, 17, 17, 0.04);
+}
+
+/* Site Title / Brand */
+.site-header-brand .wp-block-site-title a {
+    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', Georgia, serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    text-transform: uppercase;
+}
+
+.site-header-brand .wp-block-site-title a:hover {
+    opacity: 0.8;
+}
+
+/* Desktop Navigation Items */
+.site-header-nav .wp-block-navigation-item__label {
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.site-header-nav .wp-block-navigation-item > a {
+    padding: 0.5rem 0.9rem;
+    position: relative;
+}
+
+.site-header-nav .wp-block-navigation-item > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0.9rem;
+    right: 0.9rem;
+    height: 1px;
+    background-color: var(--wp--preset--color--deep-ink, #111111);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-nav .wp-block-navigation-item > a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Submenu / Dropdown Styling */
+.wp-block-navigation .wp-block-navigation__submenu-container {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    border: 1px solid rgba(17, 17, 17, 0.08) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06) !important;
+    padding: 0.75rem 0 !important;
+    min-width: 220px !important;
+    border-radius: 0 !important;
+}
+
+.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item a {
+    padding: 0.6rem 1.5rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item a:hover {
+    background-color: rgba(17, 17, 17, 0.04) !important;
+    color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+}
+
+/* Header Right Utility Cluster */
+.site-header-tools {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.header-account-link a {
+    color: var(--wp--preset--color--deep-ink, #111111);
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.header-account-link a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+/* Mini Cart Widget */
+.wc-block-mini-cart__button {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.25rem !important;
+    cursor: pointer !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+.wc-block-mini-cart__badge {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    font-size: 0.65rem !important;
+    font-weight: 600 !important;
+    border-radius: 50% !important;
+}
+
+/* Regional Switcher in Header */
 .grr-compact-switcher, .grr-frontend-switcher {
     display: inline-flex;
     align-items: center;
@@ -185,4 +252,570 @@ a:hover {
     color: var(--wp--preset--color--deep-ink, #111111) !important;
     font-size: 0.75rem !important;
     letter-spacing: 0.12em !important;
+}
+
+/* Mobile Navigation Overlay */
+.wp-block-navigation__responsive-container.is-menu-open {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    padding: 4rem 2rem 2rem 2rem !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a {
+    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', Georgia, serif) !important;
+    font-size: 1.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.75rem 0 !important;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+
+/* ==========================================================================
+   3. Buttons Design System
+   ========================================================================== */
+.wp-block-button__link, button.button, input.button, a.button, .suisuto-btn-primary {
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    padding: 0.95rem 2.25rem !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.2;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Button Variant: Solid Fill (Default) */
+.wp-block-button:not(.is-style-outline):not(.is-style-underline):not(.is-style-brass) .wp-block-button__link,
+.suisuto-btn-primary {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    border: 1px solid var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+.wp-block-button:not(.is-style-outline):not(.is-style-underline):not(.is-style-brass) .wp-block-button__link:hover,
+.suisuto-btn-primary:hover {
+    background-color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
+    letter-spacing: 0.26em !important;
+    opacity: 1 !important;
+}
+
+/* Button Variant: Outline */
+.wp-block-button.is-style-outline .wp-block-button__link,
+.suisuto-btn-outline {
+    background-color: transparent !important;
+    border: 1px solid currentColor !important;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover,
+.suisuto-btn-outline:hover {
+    letter-spacing: 0.26em !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    opacity: 1 !important;
+}
+
+/* Button Variant: Minimalist Underline / Ghost */
+.wp-block-button.is-style-underline .wp-block-button__link,
+.suisuto-btn-underline {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid currentColor !important;
+    padding: 0.5rem 0 !important;
+    color: inherit !important;
+}
+
+.wp-block-button.is-style-underline .wp-block-button__link:hover,
+.suisuto-btn-underline:hover {
+    letter-spacing: 0.26em !important;
+    border-bottom-color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+    color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+    opacity: 1 !important;
+}
+
+/* Button Variant: Antique Brass Accent */
+.wp-block-button.is-style-brass .wp-block-button__link,
+.suisuto-btn-brass {
+    background-color: var(--wp--preset--color--antique-brass, #C5A059) !important;
+    color: #FFFFFF !important;
+    border: 1px solid var(--wp--preset--color--antique-brass, #C5A059) !important;
+}
+
+.wp-block-button.is-style-brass .wp-block-button__link:hover,
+.suisuto-btn-brass:hover {
+    background-color: #B59049 !important;
+    letter-spacing: 0.26em !important;
+    opacity: 1 !important;
+}
+
+
+/* ==========================================================================
+   4. Product Card Component & WooCommerce Loop
+   ========================================================================== */
+.suisuto-product-card {
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-product-card-image-wrap {
+    position: relative;
+    overflow: hidden;
+    background-color: #F0ECE4;
+}
+
+.suisuto-product-card-image-wrap img,
+.wc-block-grid__product-image img,
+.woocommerce-loop-product__link img {
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-product-card:hover .suisuto-product-card-image-wrap img,
+.wc-block-grid__product:hover .wc-block-grid__product-image img,
+.woocommerce ul.products li.product:hover img {
+    transform: scale(1.04);
+}
+
+/* Craft Metadata Tag */
+.suisuto-product-card-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    background-color: rgba(251, 249, 245, 0.9);
+    padding: 0.3rem 0.65rem;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+    margin: 0;
+}
+
+/* Quick View on Hover */
+.suisuto-product-quick-view {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.7), transparent);
+    padding: 2rem 1rem 1rem 1rem;
+    margin: 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    z-index: 2;
+}
+
+.suisuto-product-quick-view a {
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.suisuto-product-card:hover .suisuto-product-quick-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Product Typography */
+.suisuto-product-title,
+.wc-block-grid__product-title,
+.woocommerce-loop-product__title {
+    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', serif) !important;
+    font-size: 1.18rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.35 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.3rem !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+.suisuto-product-price,
+.wc-block-grid__product-price,
+.woocommerce ul.products li.product .price {
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
+    font-size: 0.88rem !important;
+    color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
+    letter-spacing: 0.06em !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
+/* WooCommerce Default Loop Clean Reset */
+.woocommerce ul.products li.product {
+    text-align: left !important;
+    margin-bottom: 3rem !important;
+}
+
+.woocommerce ul.products li.product .button {
+    display: none !important; /* Hide cluttered catalog add-to-cart buttons in favor of luxury single page experience */
+}
+
+
+/* ==========================================================================
+   5. Collection Card Component & Grid
+   ========================================================================== */
+.suisuto-collection-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.suisuto-collection-card-image-wrap {
+    position: relative;
+    overflow: hidden;
+    background-color: #E8E3DA;
+}
+
+.suisuto-collection-card-image-wrap img {
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-collection-card:hover .suisuto-collection-card-image-wrap img {
+    transform: scale(1.05);
+}
+
+.suisuto-collection-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 1.75rem 1.75rem 1.75rem;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.4) 60%, transparent 100%);
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+    z-index: 2;
+}
+
+.suisuto-collection-subtitle {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    margin: 0 0 0.5rem 0;
+}
+
+.suisuto-collection-title {
+    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', Georgia, serif);
+    font-size: 1.65rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.75rem 0;
+    color: #FFFFFF;
+}
+
+.suisuto-collection-title a {
+    color: inherit;
+}
+
+.suisuto-collection-cta {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.suisuto-collection-cta a {
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+    border-bottom: 1px solid rgba(251, 249, 245, 0.4);
+    padding-bottom: 2px;
+    transition: border-color 0.3s ease;
+}
+
+.suisuto-collection-card:hover .suisuto-collection-cta a {
+    border-bottom-color: #FFFFFF;
+}
+
+
+/* ==========================================================================
+   6. Image Treatments & Aspect Ratio System
+   ========================================================================== */
+.aspect-3-4 img {
+    aspect-ratio: 3/4;
+    object-fit: cover;
+}
+
+.aspect-4-5 img {
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+.aspect-1-1 img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.aspect-16-9 img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* Image Style: Slow Zoom Hover */
+.wp-block-image.is-style-luxury-zoom {
+    overflow: hidden;
+}
+
+.wp-block-image.is-style-luxury-zoom img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wp-block-image.is-style-luxury-zoom:hover img {
+    transform: scale(1.04);
+}
+
+/* Image Style: Editorial Frame */
+.wp-block-image.is-style-editorial-frame {
+    padding: 1.25rem;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    background-color: var(--wp--preset--color--soft-white, #FFFFFF);
+}
+
+/* Captions */
+figcaption {
+    font-family: var(--wp--preset--font-family--serif, 'Cormorant Garamond', Georgia, serif);
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #777777;
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   7. Newsletter Component
+   ========================================================================== */
+.suisuto-newsletter-form {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.suisuto-newsletter-input-group {
+    display: flex;
+    border-bottom: 1px solid rgba(251, 249, 245, 0.35);
+    transition: border-color 0.3s ease;
+}
+
+.suisuto-newsletter-input-group:focus-within {
+    border-bottom-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.suisuto-newsletter-input-group .suisuto-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    padding: 0.85rem 0.5rem;
+    outline: none;
+}
+
+.suisuto-newsletter-input-group .suisuto-input::placeholder {
+    color: rgba(251, 249, 245, 0.45);
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+}
+
+.suisuto-newsletter-input-group .suisuto-button-submit {
+    background: transparent;
+    border: none;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.suisuto-newsletter-input-group .suisuto-button-submit:hover {
+    opacity: 0.75;
+}
+
+.suisuto-newsletter-disclaimer {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: #888888;
+    text-align: center;
+    margin-top: 1.25rem;
+}
+
+.suisuto-form-feedback {
+    display: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.suisuto-form-feedback.has-success {
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+}
+
+.suisuto-form-feedback.has-error {
+    color: #D96A58;
+}
+
+
+/* ==========================================================================
+   8. Basic Forms & Controls
+   ========================================================================== */
+.suisuto-label, label {
+    display: block;
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    margin-bottom: 0.5rem;
+}
+
+.suisuto-input, .suisuto-select, .suisuto-textarea,
+input[type="text"], input[type="email"], input[type="search"], input[type="tel"], input[type="password"], textarea, select {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    border-radius: 0;
+    padding: 0.85rem 1rem;
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.85rem;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    outline: none;
+}
+
+.suisuto-input:focus, .suisuto-select:focus, .suisuto-textarea:focus,
+input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus, textarea:focus, select:focus {
+    border-color: var(--wp--preset--color--deep-ink, #111111);
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.suisuto-form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.suisuto-form-field {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.suisuto-form-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* WordPress Core Search Block Refinement */
+.wp-block-search__input {
+    border: 1px solid rgba(17, 17, 17, 0.2) !important;
+    border-radius: 0 !important;
+    padding: 0.65rem 0.85rem !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.08em !important;
+}
+
+.wp-block-search__button {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    border: 1px solid var(--wp--preset--color--deep-ink, #111111) !important;
+    border-radius: 0 !important;
+    font-size: 0.74rem !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    padding: 0.65rem 1.25rem !important;
+}
+
+
+/* ==========================================================================
+   9. Footer Polish
+   ========================================================================== */
+.site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-nav-list li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-nav-list a {
+    color: #C5BEB3;
+    transition: color 0.25s ease;
+}
+
+.footer-nav-list a:hover {
+    color: #FFFFFF;
+}
+
+.footer-concierge-link {
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    transition: opacity 0.25s ease;
+}
+
+.footer-concierge-link:hover {
+    opacity: 0.8;
+}
+
+.footer-bottom-bar a {
+    color: #888888;
+    transition: color 0.25s ease;
+}
+
+.footer-bottom-bar a:hover {
+    color: #C5BEB3;
+}
+
+
+/* ==========================================================================
+   10. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 992px) {
+    .site-header {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+    
+    .suisuto-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .site-header-brand .wp-block-site-title a {
+        font-size: 1.25rem;
+    }
+
+    .site-footer {
+        padding-top: 4rem !important;
+        padding-bottom: 2.5rem !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
 }

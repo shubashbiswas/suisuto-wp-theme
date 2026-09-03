@@ -1,0 +1,18 @@
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# Editor & IDE
+.vscode/
+.idea/
+*.sw?
+*~
+
+# Logs & Temp
+*.log
+.tmp/
+.temp/
