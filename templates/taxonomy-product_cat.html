@@ -1,9 +1,11 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","align":"full","className":"suisuto-shop-archive-main","style":{"spacing":{"padding":{"top":"clamp(3rem, 6vw, 5rem)","bottom":"clamp(4rem, 8vw, 7rem)","left":"clamp(1.25rem, 4vw, 3rem)","right":"clamp(1.25rem, 4vw, 3rem)"}}},"layout":{"type":"constrained","wideSize":"1440px"}} -->
-<main class="wp-block-group alignfull suisuto-shop-archive-main" style="padding-top:clamp(3rem, 6vw, 5rem);padding-bottom:clamp(4rem, 8vw, 7rem);padding-left:clamp(1.25rem, 4vw, 3rem);padding-right:clamp(1.25rem, 4vw, 3rem)">
+<!-- wp:group {"tagName":"main","align":"full","className":"suisuto-category-archive-main","style":{"spacing":{"padding":{"top":"clamp(3rem, 6vw, 5rem)","bottom":"clamp(4rem, 8vw, 7rem)","left":"clamp(1.25rem, 4vw, 3rem)","right":"clamp(1.25rem, 4vw, 3rem)"}}},"layout":{"type":"constrained","wideSize":"1440px"}} -->
+<main class="wp-block-group alignfull suisuto-category-archive-main" style="padding-top:clamp(3rem, 6vw, 5rem);padding-bottom:clamp(4rem, 8vw, 7rem);padding-left:clamp(1.25rem, 4vw, 3rem);padding-right:clamp(1.25rem, 4vw, 3rem)">
 
 	<!-- wp:woocommerce/store-notices /-->
+
+	<!-- wp:woocommerce/breadcrumbs {"style":{"spacing":{"margin":{"bottom":"2rem"}}}} /-->
 
 	<!-- wp:group {"align":"wide","className":"suisuto-archive-header","style":{"spacing":{"margin":{"bottom":"clamp(2.5rem, 5vw, 4rem)"}}},"layout":{"type":"constrained","contentSize":"820px"}} -->
 	<div class="wp-block-group alignwide suisuto-archive-header" style="margin-bottom:clamp(2.5rem, 5vw, 4rem)">
@@ -20,7 +22,7 @@
 		<div class="wp-block-column suisuto-catalog-sidebar" style="flex-basis:22%">
 			<div class="suisuto-sidebar-inner">
 				<!-- wp:heading {"level":4,"className":"suisuto-sidebar-title","style":{"typography":{"fontSize":"0.72rem","letterSpacing":"0.22em","fontFamily":"var(--wp--preset--font-family--body)","fontWeight":"600"}}} -->
-				<h4 class="suisuto-sidebar-title" style="font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(17,17,17,0.1)">CURATED EDITIONS</h4>
+				<h4 class="suisuto-sidebar-title" style="font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(17,17,17,0.1)">CATEGORIES</h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:woocommerce/product-categories {"isDropdown":false,"hasCount":true} /-->
@@ -30,7 +32,7 @@
 				<!-- /wp:spacer -->
 
 				<!-- wp:heading {"level":4,"className":"suisuto-sidebar-title","style":{"typography":{"fontSize":"0.72rem","letterSpacing":"0.22em","fontFamily":"var(--wp--preset--font-family--body)","fontWeight":"600"}}} -->
-				<h4 class="suisuto-sidebar-title" style="font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(17,17,17,0.1)">FILTER BY PRICE</h4>
+				<h4 class="suisuto-sidebar-title" style="font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(17,17,17,0.1)">PRICE</h4>
 				<!-- /wp:heading -->
 
 				<!-- wp:woocommerce/price-filter /-->
@@ -70,10 +72,10 @@
 				<!-- wp:group {"className":"suisuto-catalog-empty","layout":{"type":"flex","orientation":"vertical","justifyContent":"center","alignItems":"center"},"style":{"spacing":{"padding":{"top":"4rem","bottom":"4rem"}}}} -->
 				<div class="wp-block-group suisuto-catalog-empty" style="padding-top:4rem;padding-bottom:4rem">
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontFamily":"var(--wp--preset--font-family--serif)","fontSize":"1.4rem"}}} -->
-					<p class="has-text-align-center" style="font-family:var(--wp--preset--font-family--serif);font-size:1.4rem">No creations currently found in this archive.</p>
+					<p class="has-text-align-center" style="font-family:var(--wp--preset--font-family--serif);font-size:1.4rem">No creations found in this category.</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"0.85rem"},"spacing":{"margin":{"top":"0.5rem"}}},"color":{"text":"var(--wp--preset--color--charcoal)"}} -->
-					<p class="has-charcoal-color has-text-color has-text-align-center" style="font-size:0.85rem;margin-top:0.5rem">Our artisanal capsules are produced in limited batches. Please explore our other editions.</p>
+					<p class="has-charcoal-color has-text-color has-text-align-center" style="font-size:0.85rem;margin-top:0.5rem">Our artisanal capsules are produced in limited seasonal batches.</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"1.5rem"}}}} -->
 					<div class="wp-block-buttons" style="margin-top:1.5rem">

@@ -1,14 +1,15 @@
 <div align="center">
 
 # 🧵 Sui Suto — সুই সুতো
+
 ### *Quiet Luxury Rooted in Bengal*
 
 **A contemporary high-fashion WordPress Block Theme (Full Site Editing) built for WooCommerce and artisanal luxury storytelling.**
 
-[![WordPress](https://img.shields.io/badge/WordPress-6.5%2B-21759b?style=for-the-badge&logo=wordpress&logoColor=white)](https://wordpress.org)
+[![WordPress](https://img.shields.io/badge/WordPress-7.1%2B-21759b?style=for-the-badge&logo=wordpress&logoColor=white)](https://wordpress.org)
 [![Full Site Editing](https://img.shields.io/badge/FSE-Block_Theme-8b5cf6?style=for-the-badge&logo=wordpress&logoColor=white)](#)
 [![WooCommerce](https://img.shields.io/badge/WooCommerce-Ready-96588a?style=for-the-badge&logo=woocommerce&logoColor=white)](https://woocommerce.com)
-[![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-777bb4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![PHP Version](https://img.shields.io/badge/PHP-8.3%2B-777bb4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![License](https://img.shields.io/badge/License-GPLv2-f59e0b?style=for-the-badge)](#)
 
 [Design Philosophy](#-design-philosophy) • [Key Features](#-key-features) • [Color & Typography](#-color-palette--typography) • [Pattern Library](#-block-pattern-library) • [AI Connector](#-ai-connector--block-bindings) • [Installation](#-installation)
@@ -19,7 +20,7 @@
 
 ## 🏛️ Design Philosophy
 
-**Sui Suto (সুই সুতো)** brings centuries of Bengal textile artistry—Dhaka Muslin, Jamdani, Baluchari, Garad, Tangail Silk, Shibori Indigo, and handloom Khadi—into a contemporary quiet luxury fashion house. 
+**Sui Suto (সুই সুতো)** brings centuries of Bengal textile artistry—Dhaka Muslin, Jamdani, Baluchari, Garad, Tangail Silk, Shibori Indigo, and handloom Khadi—into a contemporary quiet luxury fashion house.
 
 Unlike conventional e-commerce themes burdened with visual noise and bloated frameworks, Sui Suto is built with **monastic restraint, editorial typography, generous whitespace, and pure native WordPress Gutenberg architecture**.
 
@@ -53,6 +54,7 @@ Unlike conventional e-commerce themes burdened with visual noise and bloated fra
 | `pure-white` | Pure White | `#FFFFFF` | Card surfaces, modal elevations |
 
 ### Editorial Typography
+
 * **Headings & Editorial**: `Cormorant Garamond` (Serif) — Refined, timeless haute couture sensibility.
 * **Body & Interface**: `Plus Jakarta Sans` (Sans-Serif) — Clean, legible modern geometric sans for optimal readability.
 
@@ -63,6 +65,7 @@ Unlike conventional e-commerce themes burdened with visual noise and bloated fra
 Sui Suto organizes 15 custom block patterns into 5 dedicated Gutenberg categories:
 
 ### 1. `suisuto-luxury` (Brand & Stories)
+
 * **`hero-luxury`**: Split-screen editorial hero with asymmetric typography and seasonal campaign link.
 * **`brand-intro`**: Centered brand manifesto celebrating Bengal's artisanal heritage.
 * **`brand-story`**: Detailed narrative layout detailing brand origins, human craftsmanship, textile heritage metrics, and founder philosophy.
@@ -71,6 +74,7 @@ Sui Suto organizes 15 custom block patterns into 5 dedicated Gutenberg categorie
 * **`quote`**: Monastic quiet luxury editorial pull quote celebrating artisan dedication and Bengal textile philosophy.
 
 ### 2. `suisuto-components` (Core UI)
+
 * **`hero-fullscreen`**: Immersive full-viewport campaign hero banner.
 * **`featured-collection`**: Editorial showcase highlighting a flagship seasonal capsule with large campaign photography, narrative typography, and dual CTAs.
 * **`collection-card`**: Elegant card layout with slow zoom hover micro-animation.
@@ -79,13 +83,16 @@ Sui Suto organizes 15 custom block patterns into 5 dedicated Gutenberg categorie
 * **`image-text`**: Asymmetric editorial split section pairing framed craft photography with deep textile storytelling and material specifications.
 
 ### 3. `suisuto-woocommerce` (Commerce)
+
 * **`product-grid`**: Pure Gutenberg 4-column catalog grid featuring curated artisanal creations with tags, prices, and slow zoom hover effects.
 * **`product-grid-featured`**: Luxury curated product showcase with responsive columns and subtle hover elevation.
 
 ### 4. `suisuto-editorial` (Journal & Essays)
+
 * **`journal-section`**: Three-column editorial story grid featuring curated essays on craft heritage, textile history, and artisanal methodology.
 
 ### 5. `suisuto-forms` (Refined Forms)
+
 * **`newsletter`**: Minimalist luxury newsletter signup box.
 * **`form-inquiry`**: Bespoke atelier customer inquiry and private consultation form.
 
@@ -93,7 +100,7 @@ Sui Suto organizes 15 custom block patterns into 5 dedicated Gutenberg categorie
 
 ## 🤖 AI Connector & Block Bindings
 
-Located in [`inc/ai-connector.php`](file:///c:/Users/Ratan/Local%20Sites/multi/app/public/wp-content/themes/suisuto/inc/ai-connector.php), Sui Suto leverages the **WordPress 6.5+ Block Bindings API**:
+Located in [`inc/ai-connector.php`](file:///c:/Users/Ratan/Local%20Sites/multi/app/public/wp-content/themes/suisuto/inc/ai-connector.php), Sui Suto leverages the **WordPress 7.1+ Block Bindings API**:
 
 ```php
 // Registered Sources:
@@ -114,7 +121,8 @@ Sui Suto is architected to power multi-region luxury houses using **WordPress Mu
 * **Bangladesh Store** (`/bd/`) — Direct artisanal delivery in BDT (৳).
 * **India Store** (`/in/`) — Regional delivery in INR (₹).
 
-### Key Architectural Capabilities:
+### Key Architectural Capabilities
+
 * **Zero Subsite Link Leakage**: Built-in `suisuto_multisite_fix_relative_urls` dynamically filters rendered blocks so header navigation, footer links, and block patterns stay strictly within the current subsite (e.g. `/bd/shop`, `/in/craft`).
 * **Query & Catalog Inheritance**: Modern `wp:woocommerce/product-collection` with `inherit: true` ensures product archives automatically display the respective region's catalog, currency, and local pricing.
 * **Regional Switcher Integration**: Native support for the `[geo_regional_switcher]` shortcode in the sticky header tools bar.
@@ -125,38 +133,53 @@ Sui Suto is architected to power multi-region luxury houses using **WordPress Mu
 
 ```
 wp-content/themes/suisuto/
-├── style.css                 # Theme metadata & core CSS styling
-├── theme.json                # Global styles, palette, typography & layout settings
-├── functions.php             # Enqueue scripts, patterns & block style definitions
-├── screenshot.jpg            # WordPress admin theme preview image
-├── README.md                 # Full theme documentation
-├── readme.txt                # WordPress.org standard theme readme
-├── LICENSE                   # GNU GPLv2 License
+├── style.css                     # Theme metadata, core styling & WooCommerce luxury suite
+├── theme.json                    # Global styles, palette, typography & layout settings
+├── functions.php                 # Enqueue scripts, patterns & WooCommerce filters
+├── screenshot.jpg                # WordPress admin theme preview image
+├── README.md                     # Full theme documentation
+├── readme.txt                    # WordPress.org standard theme readme
+├── LICENSE                       # GNU GPLv2 License
 ├── assets/
 │   ├── js/
-│   │   └── theme.js          # Lightweight vanilla micro-interactions
-│   └── images/               # Curated high-res lookbook & product photography
+│   │   └── theme.js              # Lightweight vanilla micro-interactions
+│   └── images/                   # Curated high-res lookbook & product photography
 ├── inc/
-│   └── ai-connector.php      # WordPress Block Bindings & AI integration
+│   └── ai-connector.php          # WordPress Block Bindings & AI integration
 ├── parts/
-│   ├── header.html           # Minimalist sticky navigation header
-│   └── footer.html           # Luxury four-column editorial footer
-├── patterns/                 # Custom Gutenberg block patterns
+│   ├── header.html               # Minimalist sticky navigation header
+│   └── footer.html               # Luxury four-column editorial footer
+├── patterns/                     # 15 Custom Gutenberg block patterns
 └── templates/
-    ├── front-page.html       # Editorial brand homepage
-    ├── page-home.html        # Alternate homepage template
-    ├── single-product.html   # Editorial luxury WooCommerce product page
-    └── index.html            # Fallback template
+    ├── front-page.html           # Editorial brand homepage
+    ├── page-home.html            # Alternate homepage template
+    ├── page-collections.html     # Curated seasonal editions and capsules showcase
+    ├── page-craft.html           # Bengal craft lineage, loom process & ethical attribution
+    ├── page-about.html           # Atelier manifesto, brand story & commitment metrics
+    ├── page-journal.html / journal.html # High-fashion editorial journal & craft essays
+    ├── archive-product.html      # Quiet luxury shop catalog & product archive
+    ├── taxonomy-product_cat.html # Category archive with editorial term description
+    ├── product-search-results.html# Product search results layout
+    ├── single-product.html       # Editorial luxury single-product showcase & dossiers
+    ├── page-cart.html / cart.html# Minimalist shopping bag experience
+    ├── page-checkout.html / checkout.html # Distraction-free atelier checkout
+    ├── order-confirmation.html   # Post-purchase receipt & concierge reassurance
+    ├── page-my-account.html / my-account.html # Client atelier account portal
+    ├── 404.html                  # Bespoke luxury 404 page
+    └── index.html                # Universal fallback template
 ```
+
 
 ---
 
 ## 🚀 Installation & Setup
 
 1. Copy or clone the `suisuto` directory into your WordPress themes folder:
+
    ```bash
    wp-content/themes/suisuto/
    ```
+
 2. Navigate to **WordPress Admin** &rarr; **Appearance** &rarr; **Themes**.
 3. Hover over **Sui Suto** and click **Activate**.
 4. **Recommended Companion**: Install [**DevForge**](file:///c:/Users/Ratan/Local%20Sites/multi/app/public/wp-content/plugins/devforge/) for instant cache busting, real-time template hierarchy inspection, and user switching.

@@ -20,19 +20,22 @@ The website should communicate craftsmanship, refinement, authenticity, rarity a
 
 Use:
 
-- WordPress
-- WordPress Multisite (Multi-region storefronts)
-- Gutenberg / WordPress Block Editor
-- WordPress Block Theme architecture
-- WooCommerce
-- `theme.json`
-- Modern CSS
-- Minimal JavaScript
-- Semantic HTML
+- **WordPress 7.1+** (latest version as of now; AI inclusion introduced with WordPress 7.0+)
+- **PHP 8.3+** (strict typing `declare(strict_types=1);`, native type signatures, zero backward-compatibility overhead)
+- **WordPress 7.x Core AI Layer** (WordPress AI Client, AI Connectors API, System Instructions, Vision prompt guidance)
+- **Native Block Bindings API** (binding dynamic textile provenance directly to core Gutenberg blocks)
+- **WordPress Multisite** (multi-region storefronts: `/` Global, `/bd/` Bangladesh, `/in/` India)
+- **Gutenberg / WordPress Block Editor**
+- **WordPress Block Theme Architecture** (Full Site Editing)
+- **WooCommerce** (modern block-based architecture and templates)
+- **`theme.json`** (WordPress 7.1 schema version 3)
+- **Modern CSS** (pure CSS variables & presets; zero runtime CSS frameworks)
+- **Minimal JavaScript** (pure vanilla micro-interactions)
+- **Semantic HTML**
 
-### Do NOT use initially:
+### Do NOT use:
 
-- Tailwind CSS
+- Tailwind CSS (runtime or bloat)
 - Bootstrap
 - Elementor
 - Divi
@@ -40,67 +43,79 @@ Use:
 - Heavy multipurpose themes
 - JavaScript SPA architecture
 - Unnecessary UI frameworks
+- Legacy polyfills or backward-compatibility wrappers
 
-We will evaluate Tailwind later only if the project demonstrates a genuine need for it.
-
-The goal is to keep the theme **lightweight, native to WordPress, maintainable and performant**.
+The goal is to keep the theme **lightweight, native to WordPress 7.1, maintainable, performant, and uncompromisingly luxurious**.
 
 ---
 
 # 3. Theme Foundation
 
-Do not use a commercial fashion theme as the foundation.
+Create a **Custom WordPress block theme** engineered from the ground up for Sui Suto.
 
 Do not build on top of a heavily opinionated multipurpose theme.
 
-Create a **minimal custom WordPress block theme**.
-
-Use WordPress's current block-theme architecture and, where useful, Create Block Theme tooling as the starting point.
-
-The resulting theme should become an independent Sui Suto theme rather than a customized commercial theme.
-
-Theme architecture should follow modern WordPress conventions.
-
-Expected structure should be approximately:
+Theme architecture follows modern WordPress conventions for Full Site Editing:
 
 ```text
-sui-suto/
+suisuto/
+├── style.css                     # Theme metadata, core styling & WooCommerce luxury suite
+├── theme.json                    # Global styles, palette, typography & layout (WP 7.1 schema)
+├── functions.php                 # Enqueue scripts, pattern categories, strict typing & WooCommerce filters
+├── screenshot.jpg                # WordPress admin theme preview image
+├── README.md                     # Full theme documentation
+├── readme.txt                    # WordPress.org standard theme readme
+├── LICENSE                       # GNU GPLv2 License
 │
-├── style.css
-├── theme.json
-├── functions.php
-│
-├── templates/
-│   ├── index.html
-│   ├── front-page.html
-│   ├── page.html
-│   ├── archive.html
-│   ├── single.html
-│   ├── archive-product.html
-│   ├── single-product.html
-│   └── ...
+├── inc/
+│   └── ai-connector.php          # WordPress 7.0+ AI Connector & Block Bindings
 │
 ├── parts/
-│   ├── header.html
-│   ├── footer.html
-│   └── ...
+│   ├── header.html               # Minimalist sticky navigation header
+│   └── footer.html               # Luxury four-column editorial footer
 │
-├── patterns/
-│   ├── hero.php
-│   ├── collection.php
-│   ├── product-grid.php
-│   ├── craft-story.php
+├── patterns/                     # 17 Custom Gutenberg block patterns
+│   ├── brand-intro.php
 │   ├── brand-story.php
-│   └── newsletter.php
+│   ├── campaign-image.php
+│   ├── collection-card.php
+│   ├── collection-grid.php
+│   ├── craft-story.php
+│   ├── featured-collection.php
+│   ├── form-inquiry.php
+│   ├── hero-fullscreen.php
+│   ├── hero-luxury.php
+│   ├── image-text.php
+│   ├── journal-section.php
+│   ├── newsletter.php
+│   ├── product-card.php
+│   ├── product-grid-featured.php
+│   ├── product-grid.php
+│   └── quote.php
 │
-├── assets/
-│   ├── fonts/
-│   ├── images/
-│   └── icons/
+├── templates/
+│   ├── index.html                # Universal fallback template
+│   ├── front-page.html           # Editorial brand homepage
+│   ├── page-home.html            # Alternate homepage template
+│   ├── page.html                 # Standard page template
+│   ├── single.html               # Single blog/story post
+│   ├── archive.html              # Standard post archive
+│   ├── journal.html              # Editorial journal archive
+│   ├── 404.html                  # Custom 404 error page
+│   ├── archive-product.html      # Quiet luxury shop catalog & product archive
+│   ├── taxonomy-product_cat.html # Category archive with editorial term description
+│   ├── product-search-results.html # Dedicated product search results layout
+│   ├── single-product.html       # Editorial luxury single-product showcase & dossiers
+│   ├── page-cart.html / cart.html # Minimalist shopping bag experience
+│   ├── page-checkout.html / checkout.html # Distraction-free atelier checkout
+│   ├── order-confirmation.html   # Post-purchase receipt & concierge reassurance
+│   └── page-my-account.html / my-account.html # Client atelier account portal
 │
-└── src/
-    ├── css/
+└── assets/
+    ├── fonts/
+    ├── images/                   # Curated high-res lookbook & product photography
     └── js/
+        └── theme.js              # Vanilla micro-interactions
 ```
 
 Adjust the structure when WordPress best practices make a different organization more appropriate.
@@ -264,21 +279,7 @@ Typography should never become excessively large simply for visual impact.
 
 # 8. Logo
 
-The Sui Suto logo system will be developed separately, but the theme must support a flexible luxury identity.
-
-The header should accommodate:
-
-- Primary SUI SUTO wordmark
-- Optional abstract emblem
-- Optional compact logo/monogram
-- Mobile logo
-- Favicon
-
-Do not create a fake final logo.
-
-Use a clearly marked temporary placeholder until the approved logo assets are supplied.
-
-The theme should make replacing the logo assets straightforward.
+The Sui Suto logo is located at /assets/images/logo-s-b.webp. The header should display this logo as the primary brand identity.
 
 ---
 
@@ -482,12 +483,8 @@ The header must be exceptionally polished.
 
 Desktop structure should be approximately:
 
-```text
-SUI SUTO
-
-NEW   COLLECTIONS   WOMEN   MEN   CRAFT   JOURNAL
-
-                         SEARCH   ACCOUNT   BAG
+```
+[LOGO]                        NEW COLLECTIONS WOMEN MEN CRAFT JOURNAL                               SEARCH ACCOUNT BAG
 ```
 
 The final navigation can be adjusted based on UX testing.
@@ -983,72 +980,70 @@ Do NOT build the entire website immediately.
 
 First build the foundation.
 
-### Phase 1 — Foundation
+### Phase 1 — Foundation [COMPLETED]
 
-Create:
+Created:
 
-- Custom Sui Suto block theme
-- `theme.json`
-- Typography system
-- Color system
-- Layout system
-- Responsive system
-- Global styles
-- Gutenberg compatibility
-- WooCommerce compatibility
+- Custom Sui Suto WordPress 7.1 block theme
+- `theme.json` (WordPress 7.1 schema version 3, fluid typography, luxury palette tokens)
+- Typography system (Cormorant Garamond serif display + Plus Jakarta Sans body)
+- Color system (`warm-ivory`, `deep-ink`, `antique-brass`, `soft-white`, `charcoal`, `deep-indigo`, `muted-clay`)
+- Layout system (`1200px` content, `1440px` wide)
+- Responsive system with fluid clamp sizing
+- Global styles & WCAG 2.2 AA accessible focus states
+- Gutenberg compatibility & block bindings architecture
+- WooCommerce baseline compatibility
 
-### Phase 2 — Core Components
+### Phase 2 — Core Components [COMPLETED]
 
-Create:
+Created:
 
-- Header
-- Navigation
-- Footer
-- Buttons
-- Product card
-- Collection card
-- Hero
-- Image treatment
-- Newsletter
-- Basic forms
+- Header (sticky luxury navigation, subsite URL harmonization, account link, mini-cart)
+- Navigation (clean serif/sans hierarchy with understated active underlines)
+- Footer (luxury 4-column editorial layout with brand manifesto and atelier navigation)
+- Buttons (solid luxury, outline, minimalist underline, antique brass accent)
+- Product card (3:4 aspect ratio, slow zoom hover, craft metadata tag)
+- Collection card (asymmetric editorial framing, gradient overlays)
+- Hero banners (luxury split hero, fullscreen campaign hero)
+- Image treatments (slow zoom hover, editorial frame block styles)
+- Newsletter subscription form (minimalist inline with vanilla JS validation feedback)
+- Basic forms & atelier private consultation inquiry forms
 
-### Phase 3 — Gutenberg Patterns
+### Phase 3 — Gutenberg Patterns [COMPLETED]
 
-Create:
+Created 17 curated patterns across 5 categories:
 
-- Luxury hero
-- Featured collection
-- Product grid
-- Craft story
-- Brand story
-- Campaign image
-- Image/text section
-- Journal section
+- **suisuto-luxury**: `hero-luxury`, `brand-intro`, `brand-story`, `craft-story`, `campaign-image`, `quote`
+- **suisuto-components**: `hero-fullscreen`, `featured-collection`, `collection-card`, `collection-grid`, `product-card`, `image-text`
+- **suisuto-woocommerce**: `product-grid`, `product-grid-featured`
+- **suisuto-editorial**: `journal-section`
+- **suisuto-forms**: `newsletter`, `form-inquiry`
 
-### Phase 4 — WooCommerce
+### Phase 4 — WooCommerce [COMPLETED]
 
-Implement and style:
+Implemented and styled for WordPress 7.0+ / 7.1 and PHP 8.3+:
 
-- Shop archive
-- Product archive
-- Product page
-- Cart
-- Checkout
-- Account
+- **Shop & Product Catalog Archive** (`archive-product.html`): Curated editions filter, price slider, catalog sorting, results count, and query-inheriting product collection grid.
+- **Dedicated Category Archive** (`taxonomy-product_cat.html`): Dynamic category breadcrumbs, title, and editorial term description.
+- **Product Search Results** (`product-search-results.html`): Dedicated product search results layout with empty search fallback.
+- **Editorial Single Product Showcase** (`single-product.html`): Asymmetric 55/45 layout, gallery with zoom/lightbox/thumbnails, quantity stepper, variation selectors, "ADD TO BAG" button, 5 expandable artisan dossiers (The Story, Material & Craft, Fit & Measurements, Garment Care, Complimentary Shipping & Returns), and "You May Also Admire" related products.
+- **Shopping Bag / Cart** (`page-cart.html` & `cart.html`): Minimalist bag experience, 3:4 thumbnails, clean removal links, coupon drawer, and Warm Ivory order totals card.
+- **Distraction-Free Atelier Checkout** (`page-checkout.html` & `checkout.html`): Clean 2-column layout, secure encrypted transaction header, transparent order review, payment accordions, and "PLACE ORDER & DISPATCH" CTA.
+- **Post-Purchase Reassurance** (`order-confirmation.html`): Post-purchase receipt with order overview metrics, delivery details, and atelier concierge support box.
+- **Client Atelier Portal** (`page-my-account.html` & `my-account.html`): Split login/registration forms, client navigation sidebar, order history, and saved address cards.
+- **WooCommerce Quiet Luxury Suite** (`style.css` Section 11): Understated notices, restrained antique brass badges, custom variation selects, dossier accordions, and mini-cart drawer.
+- **PHP 8.3+ Filters** (`functions.php`): Custom `/` breadcrumb separator, "ADD TO BAG" button text, and "PLACE ORDER & DISPATCH" order button filter.
 
-### Phase 5 — Core Pages
+### Phase 5 — Core Pages [COMPLETED]
 
-Build:
+Built and styled for WordPress 7.0+ / 7.1 and PHP 8.3+:
 
-- Homepage
-- Shop
-- Product
-- Collections
-- Craft
-- About
-- Journal
-
-Use placeholder content and imagery where necessary.
+- **Homepage** (`front-page.html` / `page-home.html`): Rhythmic editorial flow (Split Hero -> Brand Manifesto -> Flagship Capsule -> Craft Provenance -> Curated Products -> Campaign Banner -> Journal Dispatches -> Newsletter Circle).
+- **Collections Showcase** (`page-collections.html`): Curated seasonal capsules (Handloom Saris, Tailored Couture, Men's Atelier, The Indigo Edit, and Artisan Textiles) with piece counts and direct links to category archives.
+- **Craft Experience** (`page-craft.html`): Deep dive into Bengal's 4 living lineages (Jamdani/Muslin, Kantha, Botanical Indigo, Baluchari/Tussar Silk), 4-step Anatomy of Human Making, and ethical cluster attributions (Nadia, Murshidabad, Burdwan, Sonargaon).
+- **About the Atelier** (`page-about.html`): The Sui Suto Manifesto, The Genesis, Monastic Restraint & Contemporary Cut, artisan metrics (100% organic fibers, 180+ hours per weft), and private consultation concierge invitation.
+- **Journal & Dispatches** (`page-journal.html` & `journal.html`): High-fashion editorial publication layout, featured lead story banner, topic filter chips, and 3-column curated story grid.
+- **Core Editorial Pages Styling** (`style.css` Section 13 & 14): Specific responsive styling for all core editorial page components down to mobile viewports.
 
 ---
 

@@ -1,9 +1,9 @@
 === Sui Suto ===
 Contributors: suisuto
 Tags: block-theme, e-commerce, custom-colors, custom-menu, custom-logo, featured-images, full-site-editing, one-column, wide-blocks, grid-layout
-Requires at least: 6.5
-Tested up to: 6.6
-Requires PHP: 7.4
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 8.3
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

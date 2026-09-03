@@ -1,0 +1,91 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","className":"suisuto-order-confirmation-main","style":{"spacing":{"padding":{"top":"clamp(3rem, 6vw, 5rem)","bottom":"clamp(4rem, 8vw, 7rem)","left":"clamp(1.25rem, 4vw, 3rem)","right":"clamp(1.25rem, 4vw, 3rem)"}}},"layout":{"type":"constrained","contentSize":"900px"}} -->
+<main class="wp-block-group alignfull suisuto-order-confirmation-main" style="padding-top:clamp(3rem, 6vw, 5rem);padding-bottom:clamp(4rem, 8vw, 7rem);padding-left:clamp(1.25rem, 4vw, 3rem);padding-right:clamp(1.25rem, 4vw, 3rem)">
+
+	<!-- wp:woocommerce/order-confirmation-status {"fontSize":"large","textAlign":"center"} /-->
+
+	<!-- wp:group {"className":"suisuto-order-confirmation-message","style":{"spacing":{"margin":{"bottom":"3rem"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","alignItems":"center"}} -->
+	<div class="wp-block-group suisuto-order-confirmation-message" style="margin-bottom:3rem">
+		<!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var(--wp--preset--font-family--serif)","fontSize":"clamp(2.2rem, 4vw, 3.2rem)","fontWeight":"400"}}} -->
+		<h1 class="has-text-align-center" style="font-family:var(--wp--preset--font-family--serif);font-size:clamp(2.2rem, 4vw, 3.2rem);font-weight:400">Order Confirmed</h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"textAlign":"center","style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.7"}},"color":{"text":"var(--wp--preset--color--charcoal)"}} -->
+		<p class="has-charcoal-color has-text-color has-text-align-center" style="font-size:0.95rem;line-height:1.7">Thank you for your acquisition. Our master artisans are preparing your garment with the highest care and dedication. A detailed receipt has been dispatched to your email.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:woocommerce/order-confirmation-summary /-->
+
+	<!-- wp:spacer {"height":"2.5rem"} -->
+	<div style="height:2.5rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+
+	<!-- wp:woocommerce/order-confirmation-totals-wrapper {"align":"wide"} -->
+	<!-- wp:woocommerce/order-confirmation-totals {"lock":{"remove":true}} /-->
+	<!-- /wp:woocommerce/order-confirmation-totals-wrapper -->
+
+	<!-- wp:woocommerce/order-confirmation-downloads-wrapper {"align":"wide"} -->
+	<!-- wp:woocommerce/order-confirmation-downloads {"lock":{"remove":true}} /-->
+	<!-- /wp:woocommerce/order-confirmation-downloads-wrapper -->
+
+	<!-- wp:spacer {"height":"2rem"} -->
+	<div style="height:2rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+
+	<!-- wp:columns {"align":"wide","className":"wc-block-order-confirmation-address-wrapper"} -->
+	<div class="wp-block-columns alignwide wc-block-order-confirmation-address-wrapper">
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:woocommerce/order-confirmation-shipping-wrapper {"align":"wide"} -->
+			<!-- wp:woocommerce/order-confirmation-shipping-address {"lock":{"remove":true}} /-->
+			<!-- /wp:woocommerce/order-confirmation-shipping-wrapper -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:woocommerce/order-confirmation-billing-wrapper {"align":"wide"} -->
+			<!-- wp:woocommerce/order-confirmation-billing-address {"lock":{"remove":true}} /-->
+			<!-- /wp:woocommerce/order-confirmation-billing-wrapper -->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+
+	<!-- wp:woocommerce/order-confirmation-additional-fields-wrapper {"align":"wide"} -->
+	<!-- wp:woocommerce/order-confirmation-additional-fields /-->
+	<!-- /wp:woocommerce/order-confirmation-additional-fields-wrapper -->
+
+	<!-- wp:woocommerce/order-confirmation-additional-information /-->
+
+	<!-- wp:spacer {"height":"3rem"} -->
+	<div style="height:3rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+
+	<!-- wp:group {"className":"suisuto-concierge-reassurance","style":{"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem","left":"2rem","right":"2rem"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center","alignItems":"center"}} -->
+	<div class="wp-block-group suisuto-concierge-reassurance" style="border:1px solid rgba(17,17,17,0.1);padding:2.5rem 2rem;text-align:center">
+		<!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"0.75rem","letterSpacing":"0.2em","fontFamily":"var(--wp--preset--font-family--body)","fontWeight":"600"}}} -->
+		<h4 style="font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.75rem">ATELIER CONCIERGE ASSISTANCE</h4>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.88rem","lineHeight":"1.7"}},"color":{"text":"var(--wp--preset--color--charcoal)"}} -->
+		<p class="has-charcoal-color has-text-color" style="font-size:0.88rem;line-height:1.7">Should you require bespoke adjustments or have inquiries regarding your order provenance, our atelier concierge is at your service at <a href="mailto:concierge@suisuto.com" style="text-decoration:underline">concierge@suisuto.com</a>.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1.5rem"}}}} -->
+		<div class="wp-block-buttons" style="margin-top:1.5rem">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/shop">CONTINUE BROWSING</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

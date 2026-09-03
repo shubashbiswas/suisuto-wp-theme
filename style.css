@@ -5,9 +5,9 @@ Author: Sui Suto Design Studio
 Author URI: https://suisuto.com
 Description: Production-quality luxury fashion WordPress Block Theme for WooCommerce, rooted in Bengal textile heritage. Quiet luxury, minimalist typography, and native Gutenberg architecture.
 Version: 1.1.0
-Requires at least: 6.5
-Tested up to: 6.6
-Requires PHP: 7.4
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 8.3
 Text Domain: suisuto
 Tags: block-theme, e-commerce, custom-colors, custom-menu, custom-logo, featured-images, full-site-editing, one-column, wide-blocks, grid-layout
 
@@ -1043,8 +1043,2025 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus,
 }
 
 
+
 /* ==========================================================================
-   11. Responsive Breakpoints
+   11. WooCommerce Quiet Luxury Suite (Phase 4)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   11.1 Global Store Notices & Alerts
+   -------------------------------------------------------------------------- */
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info,
+.wc-block-components-notice-banner {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border: 1px solid rgba(17, 17, 17, 0.15) !important;
+    border-left: 3px solid var(--wp--preset--color--deep-ink, #111111) !important;
+    border-radius: 0 !important;
+    padding: 1.1rem 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+    font-family: var(--wp--preset--font-family--body, 'Plus Jakarta Sans', sans-serif) !important;
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.02em !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1.5rem !important;
+    box-shadow: none !important;
+}
+
+.woocommerce-message::before,
+.woocommerce-info::before,
+.woocommerce-error::before {
+    display: none !important; /* Eliminate default dated dashicons */
+}
+
+.woocommerce-error {
+    border-left-color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+}
+
+.woocommerce-info {
+    border-left-color: var(--wp--preset--color--antique-brass, #C5A059) !important;
+}
+
+.woocommerce-message .button,
+.woocommerce-info .button,
+.wc-block-components-notice-banner .wc-block-components-button {
+    background: transparent !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border: 1px solid var(--wp--preset--color--deep-ink, #111111) !important;
+    border-radius: 0 !important;
+    padding: 0.45rem 1.25rem !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    float: none !important;
+    margin: 0 !important;
+}
+
+.woocommerce-message .button:hover,
+.woocommerce-info .button:hover {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+}
+
+/* --------------------------------------------------------------------------
+   11.2 Understated Badges & Price Formatting
+   -------------------------------------------------------------------------- */
+.onsale,
+.wc-block-components-product-sale-badge,
+.wc-block-components-product-sale-badge span {
+    background-color: rgba(251, 249, 245, 0.95) !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border: 1px solid var(--wp--preset--color--antique-brass, #C5A059) !important;
+    border-radius: 0 !important;
+    font-family: var(--wp--preset--font-family--body, sans-serif) !important;
+    font-size: 0.65rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    padding: 0.25rem 0.6rem !important;
+    min-height: auto !important;
+    min-width: auto !important;
+    line-height: 1.4 !important;
+    box-shadow: none !important;
+}
+
+.price del,
+.wc-block-components-product-price del {
+    opacity: 0.5;
+    font-weight: 400;
+    margin-right: 0.5rem;
+}
+
+.price ins,
+.wc-block-components-product-price ins {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+/* --------------------------------------------------------------------------
+   11.3 Catalog Archive & Filtering
+   -------------------------------------------------------------------------- */
+.suisuto-shop-archive-main,
+.suisuto-category-archive-main,
+.suisuto-search-results-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.suisuto-archive-header h1 {
+    margin: 0 0 1rem 0 !important;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-sidebar-title {
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+/* Product Categories Filter */
+.wc-block-product-categories,
+.widget_product_categories ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.wc-block-product-categories li,
+.widget_product_categories li {
+    padding: 0.55rem 0 !important;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.05) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 0.84rem !important;
+    letter-spacing: 0.04em !important;
+}
+
+.wc-block-product-categories li a,
+.widget_product_categories li a {
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    transition: color 0.25s ease, padding-left 0.25s ease !important;
+}
+
+.wc-block-product-categories li a:hover,
+.widget_product_categories li a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+    padding-left: 4px !important;
+}
+
+.wc-block-product-categories-list-item-count,
+.widget_product_categories .count {
+    font-size: 0.72rem !important;
+    color: #888888 !important;
+}
+
+/* Price Filter Slider */
+.wc-block-price-filter,
+.widget_price_filter {
+    margin-top: 1rem;
+}
+
+.wc-block-price-filter__range-input,
+.widget_price_filter .ui-slider {
+    background-color: rgba(17, 17, 17, 0.1) !important;
+    height: 2px !important;
+    border: none !important;
+}
+
+.widget_price_filter .ui-slider-handle {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border: 2px solid var(--wp--preset--color--antique-brass, #C5A059) !important;
+    border-radius: 50% !important;
+    top: -5px !important;
+    width: 12px !important;
+    height: 12px !important;
+    cursor: pointer !important;
+}
+
+.widget_price_filter .price_slider_amount {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 1rem !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+}
+
+.widget_price_filter .price_slider_amount .button {
+    background: transparent !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border: 1px solid rgba(17, 17, 17, 0.2) !important;
+    padding: 0.35rem 0.8rem !important;
+    font-size: 0.68rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+}
+
+/* Catalog Toolbar (Results Count & Sorting) */
+.suisuto-catalog-toolbar {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    padding-bottom: 1.25rem;
+}
+
+.woocommerce-result-count,
+.wc-block-components-product-results-count {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: #666666 !important;
+    margin: 0 !important;
+}
+
+.woocommerce-ordering select,
+.wc-block-catalog-sorting select {
+    border: 1px solid rgba(17, 17, 17, 0.15) !important;
+    background-color: transparent !important;
+    padding: 0.55rem 2rem 0.55rem 1rem !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 14px 14px !important;
+}
+
+/* Archive Product Cards in Loop */
+.suisuto-archive-product-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.suisuto-archive-product-card .wc-block-components-product-image,
+.suisuto-archive-product-card .wp-block-woocommerce-product-image {
+    overflow: hidden;
+    background-color: #F0ECE4;
+    aspect-ratio: 3/4;
+}
+
+.suisuto-archive-product-card img {
+    aspect-ratio: 3/4 !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.suisuto-archive-product-card:hover img {
+    transform: scale(1.04) !important;
+}
+
+.suisuto-archive-product-card a {
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    text-decoration: none !important;
+}
+
+.suisuto-archive-product-card a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+}
+
+/* Pagination */
+.wp-block-query-pagination,
+.woocommerce-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 3.5rem;
+}
+
+.wp-block-query-pagination a,
+.wp-block-query-pagination span,
+.woocommerce-pagination ul.page-numbers li a,
+.woocommerce-pagination ul.page-numbers li span {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    padding: 0.6rem 1rem;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.wp-block-query-pagination .page-numbers.current,
+.woocommerce-pagination ul.page-numbers li span.current {
+    background-color: var(--wp--preset--color--deep-ink, #111111);
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+    border-color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.wp-block-query-pagination a:hover,
+.woocommerce-pagination ul.page-numbers li a:hover {
+    border-color: rgba(17, 17, 17, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   11.4 Single Product Showcase & Dossier Accordions
+   -------------------------------------------------------------------------- */
+.suisuto-single-product-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.woocommerce-breadcrumb,
+.wc-block-breadcrumbs {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #777777 !important;
+    margin-bottom: 2rem !important;
+}
+
+.woocommerce-breadcrumb a,
+.wc-block-breadcrumbs a {
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    transition: color 0.25s ease !important;
+}
+
+.woocommerce-breadcrumb a:hover,
+.wc-block-breadcrumbs a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+}
+
+.suisuto-product-summary-inner {
+    position: sticky;
+    top: 6.5rem;
+}
+
+/* Variations Table & Inputs */
+.variations {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+}
+
+.variations tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.variations td.label {
+    padding: 0 0 0.5rem 0;
+}
+
+.variations td.label label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.variations td.value select {
+    width: 100%;
+    padding: 0.85rem 2rem 0.85rem 1rem;
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    background-color: transparent;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    background-size: 14px 14px;
+    cursor: pointer;
+    transition: border-color 0.25s ease;
+}
+
+.variations td.value select:focus {
+    border-color: var(--wp--preset--color--deep-ink, #111111);
+    outline: none;
+}
+
+.reset_variations {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #888888;
+    margin-top: 0.5rem;
+    display: inline-block;
+    border-bottom: 1px solid currentColor;
+}
+
+/* Quantity Selector */
+.woocommerce .quantity,
+.wp-block-woocommerce-add-to-cart-form .quantity {
+    display: inline-flex;
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
+.woocommerce .quantity input.qty,
+.wp-block-woocommerce-add-to-cart-form input.qty {
+    width: 60px;
+    height: 48px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 0.95rem;
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+    color: var(--wp--preset--color--deep-ink, #111111);
+    -moz-appearance: textfield;
+}
+
+.woocommerce .quantity input.qty::-webkit-outer-spin-button,
+.woocommerce .quantity input.qty::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Single Add to Cart Button */
+.single_add_to_cart_button,
+.wp-block-woocommerce-add-to-cart-form .single_add_to_cart_button {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    font-family: var(--wp--preset--font-family--body, sans-serif) !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    padding: 1rem 2.5rem !important;
+    height: 48px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease !important;
+    vertical-align: middle !important;
+}
+
+.single_add_to_cart_button:hover,
+.wp-block-woocommerce-add-to-cart-form .single_add_to_cart_button:hover {
+    background-color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Product Meta */
+.product_meta,
+.wp-block-woocommerce-product-meta {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #777777;
+    margin-top: 2rem;
+    line-height: 1.8;
+}
+
+.product_meta a,
+.wp-block-woocommerce-product-meta a {
+    color: var(--wp--preset--color--deep-ink, #111111);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.15);
+}
+
+/* Product Dossier Accordion */
+.suisuto-product-dossier {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+.suisuto-dossier-item {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+    padding: 1.25rem 0;
+}
+
+.suisuto-dossier-header {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.suisuto-dossier-header::-webkit-details-marker {
+    display: none;
+}
+
+.suisuto-dossier-title {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-dossier-icon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+}
+
+.suisuto-dossier-icon::before,
+.suisuto-dossier-icon::after {
+    content: '';
+    position: absolute;
+    background-color: var(--wp--preset--color--deep-ink, #111111);
+    transition: transform 0.3s ease;
+}
+
+.suisuto-dossier-icon::before {
+    top: 6px;
+    left: 0;
+    width: 14px;
+    height: 1px;
+}
+
+.suisuto-dossier-icon::after {
+    top: 0;
+    left: 6px;
+    width: 1px;
+    height: 14px;
+}
+
+details[open] .suisuto-dossier-icon::after {
+    transform: rotate(90deg);
+}
+
+.suisuto-dossier-content {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   11.5 Shopping Bag & Cart (page-cart.html)
+   -------------------------------------------------------------------------- */
+.suisuto-cart-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+/* Cart Table */
+table.shop_table,
+.wc-block-cart-items {
+    width: 100%;
+    border-collapse: collapse;
+    border: none !important;
+    margin-bottom: 3rem;
+}
+
+table.shop_table th,
+.wc-block-cart-items-header {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.15);
+    text-align: left;
+}
+
+table.shop_table td,
+.wc-block-cart-item {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    vertical-align: middle;
+}
+
+table.shop_table .product-thumbnail img,
+.wc-block-cart-item__image img {
+    width: 80px !important;
+    aspect-ratio: 3/4 !important;
+    object-fit: cover !important;
+    background-color: #F0ECE4;
+}
+
+table.shop_table .product-name a,
+.wc-block-cart-item__product a {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+table.shop_table .product-name a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+.product-remove a.remove,
+.wc-block-cart-item__remove-link {
+    color: #888888 !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    text-decoration: underline !important;
+    background: transparent !important;
+    border: none !important;
+    transition: color 0.25s ease !important;
+}
+
+.product-remove a.remove:hover,
+.wc-block-cart-item__remove-link:hover {
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+/* Coupon & Cart Actions */
+.coupon {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.coupon input.input-text,
+.wc-block-components-totals-coupon input {
+    border: 1px solid rgba(17, 17, 17, 0.2) !important;
+    background-color: transparent !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.1em !important;
+    border-radius: 0 !important;
+    width: 220px !important;
+}
+
+.coupon input.input-text:focus {
+    border-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    outline: none !important;
+}
+
+.coupon .button,
+.actions .button,
+.wc-block-components-totals-coupon .wc-block-components-button {
+    background: transparent !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border: 1px solid rgba(17, 17, 17, 0.3) !important;
+    border-radius: 0 !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+}
+
+.coupon .button:hover,
+.actions .button:hover {
+    background: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    border-color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+/* Cart Totals Sidebar Card */
+.cart-collaterals,
+.wc-block-cart__totals {
+    margin-top: 3rem;
+}
+
+.cart_totals,
+.wc-block-cart__totals-wrapper {
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    padding: 2.5rem;
+}
+
+.cart_totals h2,
+.wc-block-cart__totals-title {
+    font-family: var(--wp--preset--font-family--serif, serif) !important;
+    font-size: 1.6rem !important;
+    font-weight: 400 !important;
+    margin: 0 0 1.5rem 0 !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+.cart_totals table {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+}
+
+.cart_totals table th,
+.cart_totals table td {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    font-size: 0.88rem;
+}
+
+.cart_totals table .order-total th,
+.cart_totals table .order-total td {
+    border-bottom: none;
+    padding-top: 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.wc-proceed-to-checkout .checkout-button,
+.wc-block-cart__submit-button {
+    display: block !important;
+    width: 100% !important;
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    padding: 1.2rem 2rem !important;
+    border-radius: 0 !important;
+    border: none !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+.wc-proceed-to-checkout .checkout-button:hover,
+.wc-block-cart__submit-button:hover {
+    background-color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Empty Cart View */
+.cart-empty,
+.wc-block-cart__empty-cart__title {
+    font-family: var(--wp--preset--font-family--serif, serif) !important;
+    font-size: 1.85rem !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    margin: 3rem 0 1.5rem 0 !important;
+}
+
+.return-to-shop {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.return-to-shop .button {
+    background-color: transparent !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border: 1px solid var(--wp--preset--color--deep-ink, #111111) !important;
+    padding: 0.9rem 2.5rem !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+}
+
+.return-to-shop .button:hover {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+}
+
+/* --------------------------------------------------------------------------
+   11.6 Distraction-Free Atelier Checkout (page-checkout.html)
+   -------------------------------------------------------------------------- */
+.suisuto-checkout-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.woocommerce-checkout h3,
+.wc-block-checkout__section-title {
+    font-family: var(--wp--preset--font-family--serif, serif) !important;
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+    margin-bottom: 1.5rem !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+/* Checkout Form Inputs */
+.woocommerce-checkout .form-row,
+.wc-block-components-text-input {
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-checkout .form-row label,
+.wc-block-components-text-input label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    margin-bottom: 0.5rem;
+}
+
+.woocommerce-checkout input.input-text,
+.woocommerce-checkout textarea,
+.woocommerce-checkout select,
+.wc-block-components-text-input input {
+    width: 100%;
+    padding: 0.85rem 1.1rem !important;
+    border: 1px solid rgba(17, 17, 17, 0.2) !important;
+    background-color: transparent !important;
+    font-size: 0.88rem !important;
+    letter-spacing: 0.04em !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    border-radius: 0 !important;
+    transition: border-color 0.25s ease !important;
+}
+
+.woocommerce-checkout input.input-text:focus,
+.woocommerce-checkout textarea:focus,
+.woocommerce-checkout select:focus,
+.wc-block-components-text-input input:focus {
+    border-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    outline: none !important;
+}
+
+/* Order Review Table on Checkout */
+#order_review,
+.wc-block-checkout__order-summary {
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    padding: 2.5rem;
+}
+
+#order_review table.shop_table {
+    margin-bottom: 2rem;
+}
+
+#order_review_heading {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+/* Payment Methods */
+#payment,
+.wc-block-checkout__payment-methods {
+    background: transparent !important;
+    border: none !important;
+    margin-top: 2rem;
+}
+
+#payment ul.payment_methods {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+#payment ul.payment_methods li {
+    padding: 1rem 0;
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+#payment ul.payment_methods li label {
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+}
+
+#payment div.payment_box {
+    background-color: rgba(17, 17, 17, 0.03) !important;
+    border: 1px solid rgba(17, 17, 17, 0.08) !important;
+    border-radius: 0 !important;
+    padding: 1.25rem !important;
+    margin-top: 0.75rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.6 !important;
+    color: #555555 !important;
+}
+
+#payment div.payment_box::before {
+    display: none !important;
+}
+
+/* Place Order CTA */
+#place_order,
+.wc-block-checkout__actions_row button {
+    width: 100% !important;
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    padding: 1.25rem 2rem !important;
+    border-radius: 0 !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+#place_order:hover,
+.wc-block-checkout__actions_row button:hover {
+    background-color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
+}
+
+/* --------------------------------------------------------------------------
+   11.7 Order Confirmation & Receipt (order-confirmation.html)
+   -------------------------------------------------------------------------- */
+.suisuto-order-confirmation-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.woocommerce-order-overview,
+.wc-block-order-confirmation-summary {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem !important;
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    margin: 2rem 0 3rem 0 !important;
+}
+
+.woocommerce-order-overview li {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #777777;
+}
+
+.woocommerce-order-overview li strong {
+    display: block;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    margin-top: 0.35rem;
+    font-weight: 600;
+}
+
+.wc-block-order-confirmation-address-wrapper {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   11.8 Client Atelier Account (page-my-account.html)
+   -------------------------------------------------------------------------- */
+.suisuto-account-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+/* Account Navigation Sidebar */
+.woocommerce-MyAccount-navigation {
+    width: 25% !important;
+    float: left !important;
+    margin-right: 5% !important;
+}
+
+.woocommerce-MyAccount-navigation ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-top: 1px solid rgba(17, 17, 17, 0.1) !important;
+}
+
+.woocommerce-MyAccount-navigation li {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
+}
+
+.woocommerce-MyAccount-navigation li a {
+    display: block !important;
+    padding: 1rem 0 !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.18em !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    transition: color 0.25s ease, padding-left 0.25s ease !important;
+}
+
+.woocommerce-MyAccount-navigation li.is-active a,
+.woocommerce-MyAccount-navigation li a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D) !important;
+    padding-left: 6px !important;
+}
+
+/* Account Content Area */
+.woocommerce-MyAccount-content {
+    width: 70% !important;
+    float: right !important;
+}
+
+.woocommerce-MyAccount-content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Customer Login & Registration Split View */
+#customer_login {
+    display: flex;
+    gap: 4rem;
+    margin-top: 1rem;
+}
+
+#customer_login .col-1,
+#customer_login .col-2 {
+    flex: 1;
+}
+
+#customer_login h2 {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+#customer_login .button {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    padding: 0.95rem 2.25rem !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    border-radius: 0 !important;
+    border: none !important;
+    margin-top: 1rem !important;
+}
+
+#customer_login .button:hover {
+    background-color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
+}
+
+/* Orders Table in Account */
+.woocommerce-orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.woocommerce-orders-table th {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.15);
+    text-align: left;
+}
+
+.woocommerce-orders-table td {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    font-size: 0.88rem;
+}
+
+/* Mini Cart Drawer Flyout */
+.wc-block-mini-cart__drawer {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.wc-block-mini-cart__drawer .wc-block-mini-cart__header {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
+    padding: 1.5rem !important;
+}
+
+.wc-block-mini-cart__drawer .wc-block-mini-cart__title {
+    font-family: var(--wp--preset--font-family--serif, serif) !important;
+    font-size: 1.4rem !important;
+    letter-spacing: 0.05em !important;
+}
+
+.wc-block-mini-cart__footer {
+    border-top: 1px solid rgba(17, 17, 17, 0.08) !important;
+    padding: 1.5rem !important;
+}
+
+.wc-block-mini-cart__footer .wc-block-mini-cart__shopping-button,
+.wc-block-mini-cart__footer .wc-block-mini-cart__checkout-button {
+    border-radius: 0 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+}
+
+
+/* ==========================================================================
+   13. Core Editorial Pages (Phase 5: Collections, Craft, About, Journal)
+   ========================================================================== */
+
+/* Buttons Utility */
+.suisuto-btn-primary {
+    display: inline-block !important;
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    font-family: var(--wp--preset--font-family--body, sans-serif) !important;
+    font-size: 0.76rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    padding: 1rem 2.25rem !important;
+    border: none !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+    transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease !important;
+    text-decoration: none !important;
+}
+
+.suisuto-btn-primary:hover {
+    background-color: var(--wp--preset--color--charcoal, #2B2B2B) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    transform: translateY(-1px) !important;
+}
+
+.suisuto-btn-outline {
+    display: inline-block !important;
+    background: transparent !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+    font-family: var(--wp--preset--font-family--body, sans-serif) !important;
+    font-size: 0.76rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    padding: 0.95rem 2.25rem !important;
+    border: 1px solid var(--wp--preset--color--deep-ink, #111111) !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    text-decoration: none !important;
+}
+
+.suisuto-btn-outline:hover {
+    background-color: var(--wp--preset--color--deep-ink, #111111) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+}
+
+/* --------------------------------------------------------------------------
+   13.1 Collections Page (page-collections.html)
+   -------------------------------------------------------------------------- */
+.suisuto-collections-page-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.suisuto-collections-showcase-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin-bottom: 5rem;
+}
+
+.suisuto-collection-feature-card {
+    position: relative;
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.suisuto-collection-feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(17, 17, 17, 0.05);
+}
+
+.suisuto-card-large {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+}
+
+.suisuto-collections-dual-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.suisuto-collection-media {
+    position: relative;
+    overflow: hidden;
+    background-color: #E8E3DA;
+    aspect-ratio: 4/3;
+}
+
+.suisuto-card-large .suisuto-collection-media {
+    aspect-ratio: 16/10;
+    height: 100%;
+}
+
+.suisuto-collection-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-collection-feature-card:hover .suisuto-collection-media img {
+    transform: scale(1.05);
+}
+
+.suisuto-collection-details {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.suisuto-card-large .suisuto-collection-details {
+    padding: 3.5rem 3rem;
+}
+
+.suisuto-collection-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    margin-bottom: 0.75rem;
+}
+
+.suisuto-collection-heading {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.85rem;
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-card-large .suisuto-collection-heading {
+    font-size: 2.4rem;
+}
+
+.suisuto-collection-heading a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.suisuto-collection-heading a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+.suisuto-collection-desc {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0 0 1.5rem 0;
+}
+
+.suisuto-collection-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    padding-top: 1.25rem;
+    margin-top: auto;
+}
+
+.suisuto-collection-count {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888888;
+}
+
+.suisuto-collection-link {
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.suisuto-collection-link:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+/* --------------------------------------------------------------------------
+   13.2 Craft Page (page-craft.html)
+   -------------------------------------------------------------------------- */
+.suisuto-craft-page-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.suisuto-craft-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto clamp(3rem, 5vw, 4.5rem) auto;
+}
+
+.suisuto-craft-subtitle {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    margin-bottom: 0.75rem;
+}
+
+.suisuto-craft-title {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    margin: 0 0 1.25rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    line-height: 1.15;
+}
+
+.suisuto-craft-lead {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0;
+}
+
+.suisuto-craft-hero-visual {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.suisuto-craft-hero-visual img {
+    width: 100%;
+    aspect-ratio: 21/9;
+    object-fit: cover;
+}
+
+.suisuto-craft-hero-caption {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888888;
+    padding-top: 0.75rem;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    padding-bottom: 0.75rem;
+}
+
+/* Craft Lineage Grid */
+.suisuto-craft-lineages {
+    margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.suisuto-section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto clamp(2.5rem, 4vw, 3.5rem) auto;
+}
+
+.suisuto-section-tag {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    margin-bottom: 0.5rem;
+}
+
+.suisuto-section-heading {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    margin: 0 0 0.75rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-section-lead {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0;
+}
+
+.suisuto-lineage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.suisuto-lineage-item {
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.suisuto-lineage-media {
+    flex: 0 0 160px;
+    overflow: hidden;
+    background-color: #E8E3DA;
+    aspect-ratio: 3/4;
+}
+
+.suisuto-lineage-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.suisuto-lineage-item:hover .suisuto-lineage-media img {
+    transform: scale(1.04);
+}
+
+.suisuto-lineage-info {
+    flex: 1;
+}
+
+.suisuto-lineage-number {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.1rem;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.suisuto-lineage-title {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.45rem;
+    font-weight: 500;
+    margin: 0 0 0.75rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-lineage-body {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0 0 1.25rem 0;
+}
+
+.suisuto-lineage-specs {
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    padding-top: 0.85rem;
+    font-size: 0.74rem;
+    line-height: 1.8;
+    color: #666666;
+}
+
+.suisuto-lineage-specs span {
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+/* Craft Process Steps */
+.suisuto-craft-process {
+    margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.suisuto-process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.suisuto-process-step {
+    border-top: 1px solid var(--wp--preset--color--deep-ink, #111111);
+    padding-top: 1.5rem;
+}
+
+.suisuto-step-number {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.suisuto-step-title {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 0.75rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-step-text {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0;
+}
+
+/* Artisan Ethics Banner */
+.suisuto-craft-ethics {
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    padding: clamp(3rem, 5vw, 4.5rem) 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.suisuto-ethics-inner {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.suisuto-ethics-heading {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    margin: 0.5rem 0 1.25rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-ethics-text {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0 0 2rem 0;
+}
+
+.suisuto-ethics-clusters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.suisuto-cluster-pill {
+    font-size: 0.74rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid rgba(17, 17, 17, 0.15);
+    padding: 0.45rem 1.1rem;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+}
+
+.suisuto-cluster-pill strong {
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-ethics-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   13.3 About Page (page-about.html)
+   -------------------------------------------------------------------------- */
+.suisuto-about-page-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.suisuto-about-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto clamp(3rem, 5vw, 4.5rem) auto;
+}
+
+.suisuto-about-subtitle {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    margin-bottom: 0.75rem;
+}
+
+.suisuto-about-title {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-weight: 400;
+    margin: 0 0 1.25rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    line-height: 1.15;
+}
+
+.suisuto-about-lead {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0;
+}
+
+.suisuto-about-campaign-visual {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.suisuto-about-campaign-visual img {
+    width: 100%;
+    aspect-ratio: 21/9;
+    object-fit: cover;
+}
+
+.suisuto-about-campaign-caption {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888888;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.suisuto-about-story-section {
+    margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.suisuto-story-columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.suisuto-story-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.suisuto-story-headline {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-story-paragraph {
+    font-size: 0.96rem;
+    line-height: 1.85;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0 0 1.5rem 0;
+}
+
+.suisuto-story-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* Quote Section */
+.suisuto-about-quote-section {
+    border-top: 1px solid rgba(17, 17, 17, 0.1);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+    padding: clamp(3.5rem, 6vw, 5.5rem) 2rem;
+    text-align: center;
+    margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.suisuto-brand-quote {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+}
+
+.suisuto-brand-quote p {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    margin: 0 0 1.25rem 0;
+}
+
+.suisuto-brand-quote cite {
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888888;
+}
+
+/* Metrics Section */
+.suisuto-about-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.suisuto-metric-card {
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.suisuto-metric-number {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(3rem, 5vw, 4.25rem);
+    font-weight: 400;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.suisuto-metric-title {
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.suisuto-metric-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0;
+}
+
+/* Invitation Banner */
+.suisuto-about-invitation {
+    background-color: var(--wp--preset--color--deep-ink, #111111);
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+    padding: clamp(3.5rem, 6vw, 5rem) 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.suisuto-invitation-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.suisuto-invitation-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.suisuto-invitation-title {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(2rem, 3.5vw, 2.85rem);
+    font-weight: 400;
+    margin: 0 0 1.25rem 0;
+    color: #FFFFFF;
+}
+
+.suisuto-invitation-text {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: #CCCCCC;
+    margin: 0 0 2rem 0;
+}
+
+.suisuto-invitation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.suisuto-about-invitation .suisuto-btn-primary {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+    color: var(--wp--preset--color--deep-ink, #111111) !important;
+}
+
+.suisuto-about-invitation .suisuto-btn-primary:hover {
+    background-color: #FFFFFF !important;
+}
+
+.suisuto-about-invitation .suisuto-btn-outline {
+    border-color: rgba(251, 249, 245, 0.4) !important;
+    color: var(--wp--preset--color--warm-ivory, #FBF9F5) !important;
+}
+
+.suisuto-about-invitation .suisuto-btn-outline:hover {
+    border-color: #FFFFFF !important;
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+}
+
+/* --------------------------------------------------------------------------
+   13.4 Journal Page (page-journal.html / journal.html)
+   -------------------------------------------------------------------------- */
+.suisuto-journal-page-main {
+    background-color: var(--wp--preset--color--warm-ivory, #FBF9F5);
+}
+
+.suisuto-journal-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto clamp(3rem, 5vw, 4rem) auto;
+}
+
+.suisuto-journal-subtitle {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    margin-bottom: 0.75rem;
+}
+
+.suisuto-journal-title {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-journal-lead {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0;
+}
+
+/* Featured Lead Essay */
+.suisuto-journal-featured-card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    background-color: #F6F3EC;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    margin-bottom: 4rem;
+    overflow: hidden;
+}
+
+.suisuto-featured-essay-media {
+    overflow: hidden;
+    background-color: #E8E3DA;
+    aspect-ratio: 16/10;
+}
+
+.suisuto-featured-essay-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-journal-featured-card:hover .suisuto-featured-essay-media img {
+    transform: scale(1.04);
+}
+
+.suisuto-featured-essay-content {
+    padding: clamp(2.5rem, 4vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.suisuto-essay-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.suisuto-essay-tag {
+    color: var(--wp--preset--color--antique-brass, #C5A059);
+    font-weight: 600;
+}
+
+.suisuto-essay-readtime {
+    color: #888888;
+}
+
+.suisuto-essay-headline {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0 0 1rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-essay-headline a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.suisuto-essay-headline a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+.suisuto-essay-excerpt {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0 0 2rem 0;
+}
+
+.suisuto-essay-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    padding-top: 1.25rem;
+    margin-top: auto;
+}
+
+.suisuto-essay-author {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888888;
+}
+
+.suisuto-essay-link {
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--deep-ink, #111111);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.suisuto-essay-link:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+/* Journal Topic Chips */
+.suisuto-journal-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    padding-bottom: 1.25rem;
+    margin-bottom: 3.5rem;
+}
+
+.suisuto-category-chip {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #777777;
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.suisuto-category-chip:hover {
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-category-chip.is-active {
+    color: var(--wp--preset--color--deep-ink, #111111);
+    font-weight: 600;
+    border-bottom: 2px solid var(--wp--preset--color--deep-ink, #111111);
+}
+
+/* Curated Stories Grid */
+.suisuto-curated-story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.suisuto-article-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.suisuto-article-image-wrap {
+    overflow: hidden;
+    background-color: #E8E3DA;
+    aspect-ratio: 4/3;
+    margin-bottom: 1.25rem;
+}
+
+.suisuto-article-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suisuto-article-card:hover .suisuto-article-image-wrap img {
+    transform: scale(1.04);
+}
+
+.suisuto-article-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+    margin-bottom: 0.5rem;
+}
+
+.suisuto-article-title {
+    font-family: var(--wp--preset--font-family--serif, serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0 0 0.75rem 0;
+    color: var(--wp--preset--color--deep-ink, #111111);
+}
+
+.suisuto-article-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.suisuto-article-title a:hover {
+    color: var(--wp--preset--color--muted-clay, #A87C6D);
+}
+
+.suisuto-article-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--wp--preset--color--charcoal, #2B2B2B);
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   14. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 992px) {
     .site-header {
@@ -1070,6 +3087,85 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus,
     .suisuto-spec-row {
         flex-direction: column;
         gap: 0.25rem;
+    }
+
+    /* WooCommerce Responsive 992px */
+    .suisuto-catalog-layout {
+        flex-direction: column !important;
+    }
+
+    .suisuto-catalog-sidebar {
+        flex-basis: 100% !important;
+        margin-bottom: 2.5rem !important;
+    }
+
+    .suisuto-catalog-content {
+        flex-basis: 100% !important;
+    }
+
+    .suisuto-single-product-columns {
+        flex-direction: column !important;
+    }
+
+    .suisuto-product-gallery-column,
+    .suisuto-product-summary-column {
+        flex-basis: 100% !important;
+    }
+
+    .suisuto-product-summary-inner {
+        position: static !important;
+        margin-top: 2rem !important;
+    }
+
+    .woocommerce-MyAccount-navigation,
+    .woocommerce-MyAccount-content {
+        width: 100% !important;
+        float: none !important;
+        margin: 0 0 2.5rem 0 !important;
+    }
+
+    #customer_login {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    /* Core Pages Responsive 992px */
+    .suisuto-card-large {
+        grid-template-columns: 1fr;
+    }
+
+    .suisuto-card-large .suisuto-collection-media {
+        aspect-ratio: 16/9;
+    }
+
+    .suisuto-collections-dual-row {
+        grid-template-columns: 1fr;
+    }
+
+    .suisuto-lineage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .suisuto-process-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .suisuto-story-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .suisuto-about-metrics {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .suisuto-journal-featured-card {
+        grid-template-columns: 1fr;
+    }
+
+    .suisuto-curated-story-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -1097,14 +3193,83 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus,
     .suisuto-journal-section,
     .suisuto-product-grid-section,
     .suisuto-image-text-section,
-    .suisuto-editorial-quote-section {
-        padding-top: 4.5rem !important;
-        padding-bottom: 4.5rem !important;
-        padding-left: 1.25rem !important;
-        padding-right: 1.25rem !important;
+    .suisuto-editorial-quote-section,
+    .suisuto-shop-archive-main,
+    .suisuto-category-archive-main,
+    .suisuto-single-product-main,
+    .suisuto-cart-main,
+    .suisuto-checkout-main,
+    .suisuto-order-confirmation-main,
+    .suisuto-account-main,
+    .suisuto-collections-page-main,
+    .suisuto-craft-page-main,
+    .suisuto-about-page-main,
+    .suisuto-journal-page-main {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
 
     .suisuto-journal-card {
         margin-bottom: 2.5rem;
     }
+
+    /* WooCommerce Mobile Adjustments */
+    .woocommerce ul.products[class*="columns-"] li.product,
+    .woocommerce-page ul.products[class*="columns-"] li.product {
+        width: 100% !important;
+    }
+
+    table.shop_table_responsive tr td {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0.75rem 0 !important;
+    }
+
+    .coupon {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .coupon input.input-text {
+        width: 100% !important;
+    }
+
+    .cart_totals,
+    #order_review {
+        padding: 1.5rem !important;
+    }
+
+    /* Core Pages Mobile Adjustments */
+    .suisuto-lineage-item {
+        flex-direction: column;
+    }
+
+    .suisuto-lineage-media {
+        flex: auto;
+        width: 100%;
+    }
+
+    .suisuto-process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .suisuto-curated-story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .suisuto-journal-categories {
+        gap: 0.75rem;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.75rem;
+    }
+
+    .suisuto-category-chip {
+        white-space: nowrap;
+    }
 }
+
+
