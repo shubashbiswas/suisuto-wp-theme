@@ -1,4 +1,4 @@
-=== Sui Suto ===
+=== Sui Suto Studio ===
 Contributors: suisuto
 Tags: block-theme, e-commerce, custom-colors, custom-menu, custom-logo, featured-images, full-site-editing, one-column, wide-blocks, grid-layout
 Requires at least: 7.0
@@ -8,27 +8,36 @@ Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Production-quality luxury fashion WordPress Block Theme for WooCommerce, rooted in Bengal textile heritage. Quiet luxury, minimalist typography, and native Gutenberg architecture.
+Sui Suto Studio: 70% Brand / 30% Ecommerce. Editorial fashion ecommerce experience focused on brand identity, storytelling, and premium visual design.
 
 == Description ==
 
-Sui Suto (সুই সুতো) brings centuries of Bengal textile artistry—Dhaka Muslin, Jamdani, Baluchari, Garad, Tangail Silk, and handloom Khadi—into a contemporary quiet luxury fashion house.
+A fashion-forward, editorial ecommerce experience focused on brand identity, campaign storytelling, premium visual presentation, and contemporary fashion aesthetics. Designed to create desire and establish a strong luxury-oriented brand presence while maintaining a streamlined shopping experience.
 
-Features:
-* Full Site Editing (FSE) block theme with theme.json styling.
-* Deep WooCommerce integration with minimalist luxury product layouts.
-* 4 curated pattern categories with over 10 bespoke patterns.
-* AI Connector with native WordPress Block Bindings API.
-* Editorial typography pairing Cormorant Garamond with Plus Jakarta Sans.
-* Zero external CSS frameworks for maximum performance.
+= Positioning =
+* Tier: suisuto-studio
+* Ratio: 70% Brand / 30% Ecommerce
+* Focus: Editorial & creative ("Who are we?")
+
+= Short GitHub Description =
+Editorial fashion ecommerce experience focused on brand identity, storytelling, and premium visual design.
+
+= Features =
+* Editorial-first 70% Brand / 30% Ecommerce luxury design
+* Full Site Editing (FSE) block theme with theme.json v3 styling
+* Deep WooCommerce integration with minimalist luxury product layouts
+* Editorial typography pairing Cormorant Garamond with Plus Jakarta Sans
+* Curated pattern categories with bespoke editorial patterns
+* AI Connector with native WordPress Block Bindings API
+* Zero external CSS frameworks for maximum performance
 
 == Installation ==
 
 1. In your WordPress admin dashboard, go to Appearance > Themes and click Add New.
-2. Upload the theme folder or zip file.
-3. Click Activate to make Sui Suto your active theme.
+2. Upload the suisuto-studio theme folder or zip file.
+3. Click Activate to make Sui Suto Studio your active theme.
 
-== Copyright ==
+== Changelog ==
 
-Sui Suto WordPress Theme, Copyright (C) 2026 Sui Suto Design Studio
-Sui Suto is distributed under the terms of the GNU GPL v2 or later.
+= 1.1.0 =
+* Initial release of Sui Suto Studio (suisuto-studio).

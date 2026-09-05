@@ -1,10 +1,12 @@
 <div align="center">
 
-# 🧵 Sui Suto — সুই সুতো
+# 🧵 Sui Suto Studio (সুই সুতো) — `suisuto-studio`
 
-### *Quiet Luxury Rooted in Bengal*
+> **70% Brand / 30% Ecommerce**  
+> A fashion-forward, editorial ecommerce experience focused on brand identity, campaign storytelling, premium visual presentation, and contemporary fashion aesthetics. Designed to create desire and establish a strong luxury-oriented brand presence while maintaining a streamlined shopping experience.
 
-**A contemporary high-fashion WordPress Block Theme (Full Site Editing) built for WooCommerce and artisanal luxury storytelling.**
+**Short GitHub description:**
+> Editorial fashion ecommerce experience focused on brand identity, storytelling, and premium visual design.
 
 [![WordPress](https://img.shields.io/badge/WordPress-7.1%2B-21759b?style=for-the-badge&logo=wordpress&logoColor=white)](https://wordpress.org)
 [![Full Site Editing](https://img.shields.io/badge/FSE-Block_Theme-8b5cf6?style=for-the-badge&logo=wordpress&logoColor=white)](#)
@@ -15,6 +17,16 @@
 [Design Philosophy](#-design-philosophy) • [Key Features](#-key-features) • [Color & Typography](#-color-palette--typography) • [Pattern Library](#-block-pattern-library) • [AI Connector](#-ai-connector--block-bindings) • [Installation](#-installation)
 
 </div>
+
+---
+
+## Overview
+
+**Sui Suto Studio** (`suisuto-studio`) is engineered around a core philosophy:
+> **"A fashion-forward, editorial ecommerce experience focused on brand identity, campaign storytelling, premium visual presentation, and contemporary fashion aesthetics."**
+
+### 70% Brand / 30% Ecommerce
+Designed to create desire and establish a strong luxury-oriented brand presence while maintaining a streamlined shopping experience.
 
 ---
 
@@ -33,7 +45,7 @@ Unlike conventional e-commerce themes burdened with visual noise and bloated fra
 * **⚡ Pure Block Theme (Full Site Editing)**: 100% native WordPress block templates, template parts, and `theme.json` configuration. Zero page builder dependency.
 * **🛍️ Quiet Luxury WooCommerce**: Bespoke product grids, editorial single-product showcase layouts, zoom hover states, and minimalist inquiry forms.
 * **🌐 Multisite & Regional Store Ready**: Fully compatible with WordPress Multisite (subdirectories `/bd/`, `/in/`, etc.) featuring automatic subsite URL harmonization (`suisuto_multisite_fix_relative_urls`), query inheritance, and zero cross-store link leakage.
-* **🎨 5 Curated Pattern Categories**: 15 custom block patterns spanning Brand Stories, Editorial Hero Banners, Curated Collection Grids, Journal Essays, and Bespoke Inquiry Forms.
+* **🎨 5 Curated Pattern Categories**: 17 custom block patterns spanning Brand Stories, Editorial Hero Banners, Curated Collection Grids, Journal Essays, and Bespoke Inquiry Forms.
 * **🤖 WordPress AI Connector & Block Bindings**: Built-in dynamic block bindings (`suisuto/ai-product-meta`, `suisuto/craft-story`, `suisuto/artisan-origin`) connecting AI-assisted fashion narratives directly to native Gutenberg blocks.
 * **📱 Responsive & Fluid Typography**: Fluid clamp-based scale ensuring graceful scaling from 4K cinema displays down to mobile screens.
 * **💨 Ultra-Lightweight**: Zero external CSS frameworks (no Bootstrap, no Tailwind runtime). Pure modern CSS utilizing CSS variables and native Gutenberg presets.
@@ -62,7 +74,7 @@ Unlike conventional e-commerce themes burdened with visual noise and bloated fra
 
 ## 🧩 Block Pattern Library
 
-Sui Suto organizes 15 custom block patterns into 5 dedicated Gutenberg categories:
+Sui Suto Studio organizes 17 custom block patterns into 5 dedicated Gutenberg categories:
 
 ### 1. `suisuto-luxury` (Brand & Stories)
 
@@ -100,7 +112,7 @@ Sui Suto organizes 15 custom block patterns into 5 dedicated Gutenberg categorie
 
 ## 🤖 AI Connector & Block Bindings
 
-Located in [`inc/ai-connector.php`](file:///c:/Users/Ratan/Local%20Sites/multi/app/public/wp-content/themes/suisuto/inc/ai-connector.php), Sui Suto leverages the **WordPress 7.1+ Block Bindings API**:
+Located in [`inc/ai-connector.php`](file:///c:/Users/Ratan/Local%20Sites/multi/app/public/wp-content/themes/suisuto-studio/inc/ai-connector.php), Sui Suto leverages the **WordPress 7.1+ Block Bindings API**:
 
 ```php
 // Registered Sources:
@@ -177,14 +189,14 @@ wp-content/themes/suisuto/
 
 ## 🚀 Installation & Setup
 
-1. Copy or clone the `suisuto` directory into your WordPress themes folder:
+1. Copy or clone the `suisuto-studio` repository into your WordPress themes folder:
 
    ```bash
-   wp-content/themes/suisuto/
+   wp-content/themes/suisuto-studio/
    ```
 
 2. Navigate to **WordPress Admin** &rarr; **Appearance** &rarr; **Themes**.
-3. Hover over **Sui Suto** and click **Activate**.
+3. Hover over **Sui Suto Studio** and click **Activate**.
 4. **Recommended Companion**: Install [**DevForge**](file:///c:/Users/Ratan/Local%20Sites/multi/app/public/wp-content/plugins/devforge/) for instant cache busting, real-time template hierarchy inspection, and user switching.
 
 ---

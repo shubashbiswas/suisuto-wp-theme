@@ -1,33 +1,75 @@
-# SUI SUTO — LUXURY FASHION WORDPRESS THEME
+# SUI SUTO STUDIO — 70% BRAND / 30% ECOMMERCE MASTER PROMPT
 
-## 1. Project Overview
+> **Ecosystem Tier:** `brandname-studio` (`suisuto-studio`)  
+> **Ratio:** **70% Brand / 30% Ecommerce**  
+> **Positioning:** **Editorial & creative**  
+> **Core Role:** *"Who are we?"* — Editorial fashion ecommerce experience focused on brand identity, campaign storytelling, premium visual presentation, and contemporary fashion aesthetics.  
+> **Short GitHub Description:** *Editorial fashion ecommerce experience focused on brand identity, storytelling, and premium visual design.*
 
-Build a **production-quality luxury fashion e-commerce website** for **Sui Suto**, an Indo-Bengali clothing brand rooted in Bengal's textile and craft heritage.
+---
 
-Sui Suto aims to bring regional craftsmanship to the regional market while establishing a distinctive presence in the global fashion market.
+## 1. The Fashion Ecosystem: Studio / House / Store
 
-The website must feel like a **contemporary luxury fashion house**, not a generic WooCommerce store and not a traditional ethnic-fashion website.
+**Sui Suto (সুই সুতো)** operates as a unified luxury fashion brand whose identity is expressed across three distinct sister entities targeting different consumer segments and shopping intents:
+
+| Entity / Repo | Ratio | Market Tier & Positioning | Target Consumer Segment | Strategic Role & Intent |
+| :--- | :---: | :--- | :--- | :--- |
+| **`suisuto-studio`** *(This Repository)* | 70% Brand / 30% Ecommerce | **Studio Level Luxury Fashion Brand** (Editorial & Creative) | Luxury collectors, connoisseurs, couture clients, and high-net-worth patrons seeking rarity, artisanal provenance, and artistic expression. | **"Who are we?"** — Root brand identity base, high-fashion prestige, limited archival editions, campaign storytelling, and museum-grade craft dossiers. |
+| **`suisuto-house`** | 50% Brand / 50% Ecommerce | **Premium Fashion Brand** (Flagship & Balanced) | Modern professionals and contemporary fashion buyers who appreciate fine craft, quiet luxury, and quality tailoring for everyday elevation and festive occasions. | **"What does the brand stand for?"** — Balanced flagship retail, complete silhouette discovery, capsule collections, and styled outfit ensembles ("Shop the Look"). |
+| **`suisuto-store`** | 30% Brand / 70% Ecommerce | **Fast-Moving Commercial Brand** (Commerce & Conversion) | High-intent, volume shoppers looking for everyday wardrobe staples, fast-moving fashion, quick purchases, repeat orders, instant filtering, and immediate checkout. | **"What can I buy?"** — Velocity, repeat conversion, high product density, instant carting, free-shipping gamification, and optimized CRO. |
+
+### Consumer Segmentation & Brand Progression
+
+```text
+SUI SUTO (Master Brand Identity Base: Quiet Luxury Rooted in Bengal)
+│
+├── suisuto-studio (70% Brand / 30% Ecommerce)
+│   ├── Level: Studio Level Luxury Fashion Brand
+│   ├── Target: Luxury collectors, couture patrons & connoisseurs seeking artistic rarity
+│   ├── Question: "Who are we?"
+│   └── Atmosphere: Editorial • Campaign • Storytelling • Museum-Grade Provenance
+│
+├── suisuto-house (50% Brand / 50% Ecommerce)
+│   ├── Level: Premium Fashion Brand
+│   ├── Target: Discerning professionals seeking quiet luxury & fine tailoring
+│   ├── Question: "What does the brand stand for?"
+│   └── Atmosphere: Flagship • Balanced • Curated Wardrobe • Premium Commerce
+│
+└── suisuto-store (30% Brand / 70% Ecommerce)
+    ├── Level: Fast-Moving Commercial Brand
+    ├── Target: High-intent shoppers seeking everyday essentials & repeat purchases
+    ├── Question: "What can I buy?"
+    └── Atmosphere: High-Velocity • CRO • Rapid Discovery • Frictionless Checkout
+```
+
+This repository is **`suisuto-studio`**: the **Studio Level Luxury Fashion Brand** acting as the master brand identity base, creative vanguard, and haute couture showcase. It creates brand desire, establishes luxury prestige, and celebrates master Bengal craftsmanship while maintaining a streamlined shopping experience.
+
+---
+
+## 2. Project Overview
+
+Build and maintain a **production-quality editorial luxury fashion e-commerce website** for **Sui Suto (সুই সুতো)**, an Indo-Bengali clothing brand rooted in Bengal's textile and craft heritage.
 
 The central design principle is:
 
 > **Quiet luxury rooted in Bengal.**
 
-The website should communicate craftsmanship, refinement, authenticity, rarity and contemporary fashion through restraint, typography, photography, materiality and exceptional attention to detail.
+The website communicates craftsmanship, refinement, authenticity, rarity, and contemporary high-fashion through restraint, typography, photography, materiality, and exceptional attention to detail.
 
 ---
 
-# 2. Core Technology
+# 3. Core Technology
 
 Use:
 
-- **WordPress 7.1+** (latest version as of now; AI inclusion introduced with WordPress 7.0+)
+- **WordPress 7.1+** (latest version; native AI inclusion introduced with WordPress 7.0+)
 - **PHP 8.3+** (strict typing `declare(strict_types=1);`, native type signatures, zero backward-compatibility overhead)
 - **WordPress 7.x Core AI Layer** (WordPress AI Client, AI Connectors API, System Instructions, Vision prompt guidance)
 - **Native Block Bindings API** (binding dynamic textile provenance directly to core Gutenberg blocks)
-- **WordPress Multisite** (multi-region storefronts: `/` Global, `/bd/` Bangladesh, `/in/` India)
+- **WordPress Multisite** (multi-region storefronts: `/` Global, `/bd/` Bangladesh, `/in/` India with automated relative URL harmonization)
 - **Gutenberg / WordPress Block Editor**
 - **WordPress Block Theme Architecture** (Full Site Editing)
-- **WooCommerce** (modern block-based architecture and templates)
+- **WooCommerce** (modern block-based architecture and minimalist luxury templates)
 - **`theme.json`** (WordPress 7.1 schema version 3)
 - **Modern CSS** (pure CSS variables & presets; zero runtime CSS frameworks)
 - **Minimal JavaScript** (pure vanilla micro-interactions)
@@ -37,35 +79,27 @@ Use:
 
 - Tailwind CSS (runtime or bloat)
 - Bootstrap
-- Elementor
-- Divi
-- Heavy page builders
-- Heavy multipurpose themes
-- JavaScript SPA architecture
-- Unnecessary UI frameworks
+- Elementor / Divi / Heavy page builders
 - Legacy polyfills or backward-compatibility wrappers
 
 The goal is to keep the theme **lightweight, native to WordPress 7.1, maintainable, performant, and uncompromisingly luxurious**.
 
 ---
 
-# 3. Theme Foundation
-
-Create a **Custom WordPress block theme** engineered from the ground up for Sui Suto.
-
-Do not build on top of a heavily opinionated multipurpose theme.
+# 4. Theme Foundation
 
 Theme architecture follows modern WordPress conventions for Full Site Editing:
 
 ```text
-suisuto/
+suisuto-studio/
 ├── style.css                     # Theme metadata, core styling & WooCommerce luxury suite
-├── theme.json                    # Global styles, palette, typography & layout (WP 7.1 schema)
-├── functions.php                 # Enqueue scripts, pattern categories, strict typing & WooCommerce filters
+├── theme.json                    # Global styles, palette, typography & layout (WP 7.1 schema v3)
+├── functions.php                 # Enqueue scripts, pattern categories, strict typing & multisite harmonization
 ├── screenshot.jpg                # WordPress admin theme preview image
 ├── README.md                     # Full theme documentation
 ├── readme.txt                    # WordPress.org standard theme readme
 ├── LICENSE                       # GNU GPLv2 License
+├── suisuto-studio-prompt.md      # Studio tier architectural specification
 │
 ├── inc/
 │   └── ai-connector.php          # WordPress 7.0+ AI Connector & Block Bindings
@@ -93,7 +127,7 @@ suisuto/
 │   ├── product-grid.php
 │   └── quote.php
 │
-├── templates/
+├── templates/                    # 30 Block templates
 │   ├── index.html                # Universal fallback template
 │   ├── front-page.html           # Editorial brand homepage
 │   ├── page-home.html            # Alternate homepage template
@@ -118,85 +152,36 @@ suisuto/
         └── theme.js              # Vanilla micro-interactions
 ```
 
-Adjust the structure when WordPress best practices make a different organization more appropriate.
-
-Do not create unnecessary files simply to make the architecture appear sophisticated.
-
 ---
 
-# 4. Brand Positioning
+# 5. Visual Direction & The 70/30 Formula
 
-Sui Suto represents:
+The design formula for **`suisuto-studio`** is:
 
-**Bengal × craftsmanship × contemporary luxury**
+### 70% Brand / 30% Ecommerce
 
-The website should communicate:
+A fashion-forward, editorial ecommerce experience focused on brand identity, campaign storytelling, premium visual presentation, and contemporary fashion aesthetics. Designed to create desire and establish a strong luxury-oriented brand presence while maintaining a streamlined shopping experience.
 
-- Quiet luxury
-- Craftsmanship
-- Authenticity
-- Cultural depth
-- Modernity
-- Sophistication
-- Rarity
-- Human craftsmanship
-- Global relevance
+#### 70% Brand Layer
+- Large, atmospheric campaign photography with editorial framing
+- Distinctive high-contrast Cormorant Garamond display typography
+- Generous whitespace and monastic restraint
+- Textile provenance narratives (Dhaka Muslin, Jamdani, Baluchari, Garad, Tangail Silk, Handloom Khadi)
+- Asymmetrical editorial layouts that break predictable retail grids
+- Campaign journals, artisan interviews, and design manifestos
+- Subtle, expensive micro-animations (slow image zoom, graceful fade)
 
-The visual identity should feel confident and understated.
+#### 30% Ecommerce Layer
+- Clean, understated product cards with essential details (title, price, subtle hover flip)
+- Streamlined Add to Bag and bespoke inquiry options
+- High-touch single product pages with comprehensive material dossiers and care guides
+- Frictionless, distraction-free bag and checkout flows
+- Seamless navigation between brand stories and shoppable silhouettes
 
-The customer should feel:
-
-> "This is beautifully made."
-
-before feeling:
-
-> "This is a traditional Bengali clothing brand."
-
-The regional identity should emerge through **materials, craftsmanship, stories, photography and details**, rather than stereotypical decorative motifs.
-
----
-
-# 5. Visual Direction
-
-The design language is:
-
-### Contemporary luxury fashion
-
-Not:
-
-### Editorial magazine
-
-Editorial photography and storytelling can be used, but they are supporting elements.
-
-The primary experience should feel like a **luxury fashion boutique**.
-
-Prioritize:
-
-- Generous whitespace
-- Elegant typography
-- Large, beautiful photography
-- Restrained color
-- Precise alignment
-- Sophisticated product presentation
-- Subtle interaction
-- High-quality imagery
-- Tactile visual language
-- Calm navigation
-
-Avoid:
-
-- Visual clutter
-- Excessive text
-- Excessive animations
-- Loud gradients
-- Excessive gold
-- Decorative borders everywhere
-- Generic South Asian motifs
-- Overly ornamental layouts
-- Marketplace-style product grids
-- Cheap-looking badges
-- Excessive rounded cards
-- Excessive shadows
+#### Visual Guardrails:
+- Avoid visual clutter, marketplace grids, or cheap urgency badges.
+- Avoid loud discount banners or artificial scarcity claims.
+- The interface must feel **poetic, authentic, tactile, and effortlessly modern**.
 
 ---
 
